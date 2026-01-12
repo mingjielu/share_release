@@ -1,0 +1,1159 @@
+2026-01-11 15:16:40,865[utu.tracing.setup] - WARNING - setup.py:43 - PHOENIX_ENDPOINT or PHOENIX_PROJECT_NAME is not set! Skipping OpenTelemetry tracing.
+0000000000000000
+111111111111111
+3333333333333333
+Detected 47 config overrides from command line
+Connecting to external store at: http://localhost:9999
+
+=== Applying Configuration Overrides ===
+Override: algorithm.adv_estimator = grpo
+Override: algorithm.use_kl_in_reward = False
+Override: algorithm.kl_ctrl.kl_coef = 0.0
+Override: data.return_raw_chat = True
+Override: data.train_batch_size = 64
+Override: data.max_prompt_length = 2048
+Override: data.max_response_length = 16384
+Override: data.filter_overlong_prompts = True
+Override: data.truncation = error
+Override: actor_rollout_ref.model.path = /apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct
+Override: actor_rollout_ref.model.use_remove_padding = True
+Override: actor_rollout_ref.model.enable_gradient_checkpointing = True
+Override: actor_rollout_ref.actor.use_kl_loss = False
+Override: actor_rollout_ref.actor.kl_loss_coef = 0.0
+Override: actor_rollout_ref.actor.clip_ratio_low = 0.2
+Override: actor_rollout_ref.actor.clip_ratio_high = 0.28
+Override: actor_rollout_ref.actor.clip_ratio_c = 10.0
+Override: actor_rollout_ref.actor.optim.lr = 1e-06
+Override: actor_rollout_ref.actor.use_dynamic_bsz = True
+Override: actor_rollout_ref.actor.ppo_mini_batch_size = 32
+Override: actor_rollout_ref.actor.ppo_max_token_len_per_gpu = 36864
+Override: actor_rollout_ref.actor.ulysses_sequence_parallel_size = 4
+Override: actor_rollout_ref.actor.fsdp_config.param_offload = True
+Override: actor_rollout_ref.actor.fsdp_config.optimizer_offload = True
+Override: actor_rollout_ref.ref.log_prob_max_token_len_per_gpu = 36864
+Override: actor_rollout_ref.rollout.name = vllm
+Override: actor_rollout_ref.rollout.mode = async
+Override: actor_rollout_ref.rollout.tensor_model_parallel_size = 4
+Override: actor_rollout_ref.rollout.gpu_memory_utilization = 0.8
+Override: actor_rollout_ref.rollout.load_format = dummy
+Override: actor_rollout_ref.rollout.n = 16
+Override: actor_rollout_ref.rollout.val_kwargs.n = 30
+Override: trainer.logger = ['console', 'wandb']
+Override: trainer.project_name = retool_rl_reproduce_amd
+Override: trainer.experiment_name = NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30
+Override: trainer.n_gpus_per_node = 8
+Override: trainer.val_before_train = True
+Override: trainer.log_val_generations = 5
+Override: trainer.nnodes = 1
+Override: trainer.save_freq = 500
+Override: trainer.default_local_dir = /workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30
+Override: trainer.rollout_data_dir = /workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/rollout
+Override: trainer.validation_data_dir = /workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/valid
+Override: trainer.test_freq = 5
+Override: trainer.total_epochs = 1
+Override: trainer.total_training_steps = 30
+Override: trainer.max_actor_ckpt_to_keep = 5
+=========================================
+
+Configured train_files: ["['/apps/mingjiel/verl/datasets/BytedTsinghua-SIA/DAPO-Math-17k']"]
+Configured val_files: ["['/apps/mingjiel/verl/datasets/Maxwell-Jia/AIME_2024']"]
+Using custom dataset: CustomRLHFDataset from retool.py
+{'actor_rollout_ref': {'actor': {'clip_ratio_c': 10.0,
+                                 'clip_ratio_high': 0.28,
+                                 'clip_ratio_low': 0.2,
+                                 'entropy_coeff': 0,
+                                 'fsdp_config': {'optimizer_offload': True,
+                                                 'param_offload': True},
+                                 'kl_loss_coef': 0.0,
+                                 'optim': {'lr': 1e-06},
+                                 'ppo_max_token_len_per_gpu': 36864,
+                                 'ppo_micro_batch_size_per_gpu': 4,
+                                 'ppo_mini_batch_size': 32,
+                                 'ulysses_sequence_parallel_size': 4,
+                                 'use_dynamic_bsz': True,
+                                 'use_kl_loss': False},
+                       'model': {'enable_gradient_checkpointing': True,
+                                 'path': '/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct',
+                                 'use_remove_padding': True},
+                       'ref': {'fsdp_config': {'param_offload': True},
+                               'log_prob_max_token_len_per_gpu': 36864,
+                               'log_prob_micro_batch_size_per_gpu': 8},
+                       'rollout': {'gpu_memory_utilization': 0.8,
+                                   'load_format': 'dummy',
+                                   'log_prob_micro_batch_size_per_gpu': 4,
+                                   'mode': 'async',
+                                   'multi_turn': {'format': 'hermes'},
+                                   'n': 16,
+                                   'name': 'vllm',
+                                   'tensor_model_parallel_size': 4,
+                                   'val_kwargs': {'n': 30,
+                                                  'temperature': 1.0,
+                                                  'top_p': 0.6}}},
+ 'algorithm': {'adv_estimator': 'grpo',
+               'kl_ctrl': {'kl_coef': 0.0},
+               'use_kl_in_reward': False},
+ 'data': {'custom_cls': {'name': 'CustomRLHFDataset', 'path': 'retool.py'},
+          'dataloader_num_workers': 0,
+          'filter_overlong_prompts': True,
+          'max_prompt_length': 2048,
+          'max_response_length': 16384,
+          'return_raw_chat': True,
+          'train_batch_size': 64,
+          'train_files': ["['/apps/mingjiel/verl/datasets/BytedTsinghua-SIA/DAPO-Math-17k']"],
+          'truncation': 'error',
+          'val_files': ["['/apps/mingjiel/verl/datasets/Maxwell-Jia/AIME_2024']"]},
+ 'trainer': {'critic_warmup': 0,
+             'default_local_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30',
+             'experiment_name': 'NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30',
+             'log_val_generations': 5,
+             'logger': ['console', 'wandb'],
+             'max_actor_ckpt_to_keep': 5,
+             'n_gpus_per_node': 8,
+             'nnodes': 1,
+             'project_name': 'retool_rl_reproduce_amd',
+             'rollout_data_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/rollout',
+             'save_freq': 500,
+             'test_freq': 5,
+             'total_epochs': 1,
+             'total_training_steps': 30,
+             'val_before_train': True,
+             'validation_data_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/valid'}}
+2026-01-11 15:16:49,679 [INFO] (Process-462882 agentlightning.instrumentation.agentops)   AgentOpsServerManager initialized.
+Datasets will be loaded by VERL's create_rl_dataset based on config
+2026-01-11 15:16:49,679 [INFO] (Process-462882 agentlightning.execution.client_server)   Starting client-server execution with 15 runner(s) [role=algorithm, main_process=algorithm]
+2026-01-11 15:16:49,680 [INFO] (Process-462882 agentlightning.execution.client_server)   Running algorithm solely...
+Store is set. Assuming v1 execution mode.
+2026-01-11 15:16:49,686	INFO worker.py:1832 -- Connecting to existing Ray cluster at address: 10.235.192.105:8266...
+2026-01-11 15:16:49,698	INFO worker.py:2003 -- Connected to Ray cluster. View the dashboard at http://10.235.192.105:8265 
+(TaskRunner pid=471185) {'actor_rollout_ref': {'actor': {'checkpoint': {'load_contents': ['model',
+(TaskRunner pid=471185)                                                                   'optimizer',
+(TaskRunner pid=471185)                                                                   'extra'],
+(TaskRunner pid=471185)                                                 'save_contents': ['model',
+(TaskRunner pid=471185)                                                                   'optimizer',
+(TaskRunner pid=471185)                                                                   'extra']},
+(TaskRunner pid=471185)                                  'clip_ratio': 0.2,
+(TaskRunner pid=471185)                                  'clip_ratio_c': 10.0,
+(TaskRunner pid=471185)                                  'clip_ratio_high': 0.28,
+(TaskRunner pid=471185)                                  'clip_ratio_low': 0.2,
+(TaskRunner pid=471185)                                  'entropy_checkpointing': False,
+(TaskRunner pid=471185)                                  'entropy_coeff': 0,
+(TaskRunner pid=471185)                                  'entropy_from_logits_with_chunking': False,
+(TaskRunner pid=471185)                                  'fsdp_config': {'forward_prefetch': False,
+(TaskRunner pid=471185)                                                  'fsdp_size': -1,
+(TaskRunner pid=471185)                                                  'offload_policy': False,
+(TaskRunner pid=471185)                                                  'optimizer_offload': True,
+(TaskRunner pid=471185)                                                  'param_offload': True,
+(TaskRunner pid=471185)                                                  'reshard_after_forward': True,
+(TaskRunner pid=471185)                                                  'wrap_policy': {'min_num_params': 0}},
+(TaskRunner pid=471185)                                  'grad_clip': 1.0,
+(TaskRunner pid=471185)                                  'kl_loss_coef': 0.0,
+(TaskRunner pid=471185)                                  'kl_loss_type': 'low_var_kl',
+(TaskRunner pid=471185)                                  'loss_agg_mode': 'token-mean',
+(TaskRunner pid=471185)                                  'optim': {'lr': 1e-06,
+(TaskRunner pid=471185)                                            'lr_warmup_steps': -1,
+(TaskRunner pid=471185)                                            'lr_warmup_steps_ratio': 0.0,
+(TaskRunner pid=471185)                                            'min_lr_ratio': 0.0,
+(TaskRunner pid=471185)                                            'num_cycles': 0.5,
+(TaskRunner pid=471185)                                            'total_training_steps': -1,
+(TaskRunner pid=471185)                                            'warmup_style': 'constant',
+(TaskRunner pid=471185)                                            'weight_decay': 0.01},
+(TaskRunner pid=471185)                                  'policy_loss': {'clip_cov_lb': 1.0,
+(TaskRunner pid=471185)                                                  'clip_cov_ratio': 0.0002,
+(TaskRunner pid=471185)                                                  'clip_cov_ub': 5.0,
+(TaskRunner pid=471185)                                                  'kl_cov_ratio': 0.0002,
+(TaskRunner pid=471185)                                                  'loss_mode': 'vanilla',
+(TaskRunner pid=471185)                                                  'ppo_kl_coef': 0.1},
+(TaskRunner pid=471185)                                  'ppo_epochs': 1,
+(TaskRunner pid=471185)                                  'ppo_max_token_len_per_gpu': 36864,
+(TaskRunner pid=471185)                                  'ppo_micro_batch_size': None,
+(TaskRunner pid=471185)                                  'ppo_micro_batch_size_per_gpu': 4,
+(TaskRunner pid=471185)                                  'ppo_mini_batch_size': 32,
+(TaskRunner pid=471185)                                  'shuffle': False,
+(TaskRunner pid=471185)                                  'strategy': 'fsdp',
+(TaskRunner pid=471185)                                  'ulysses_sequence_parallel_size': 4,
+(TaskRunner pid=471185)                                  'use_dynamic_bsz': True,
+(TaskRunner pid=471185)                                  'use_kl_loss': False,
+(TaskRunner pid=471185)                                  'use_torch_compile': True},
+(TaskRunner pid=471185)                        'hybrid_engine': True,
+(TaskRunner pid=471185)                        'model': {'custom_chat_template': None,
+(TaskRunner pid=471185)                                  'enable_activation_offload': False,
+(TaskRunner pid=471185)                                  'enable_gradient_checkpointing': True,
+(TaskRunner pid=471185)                                  'exclude_modules': None,
+(TaskRunner pid=471185)                                  'external_lib': None,
+(TaskRunner pid=471185)                                  'fused_kernel_options': {'impl_backend': 'torch'},
+(TaskRunner pid=471185)                                  'lora_alpha': 16,
+(TaskRunner pid=471185)                                  'lora_rank': 0,
+(TaskRunner pid=471185)                                  'override_config': {},
+(TaskRunner pid=471185)                                  'path': '/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct',
+(TaskRunner pid=471185)                                  'target_modules': 'all-linear',
+(TaskRunner pid=471185)                                  'trust_remote_code': False,
+(TaskRunner pid=471185)                                  'use_fused_kernels': False,
+(TaskRunner pid=471185)                                  'use_liger': False,
+(TaskRunner pid=471185)                                  'use_remove_padding': True,
+(TaskRunner pid=471185)                                  'use_shm': False},
+(TaskRunner pid=471185)                        'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+(TaskRunner pid=471185)                                     'all_ranks': False,
+(TaskRunner pid=471185)                                     'discrete': False,
+(TaskRunner pid=471185)                                     'ranks': []},
+(TaskRunner pid=471185)                        'ref': {'entropy_checkpointing': False,
+(TaskRunner pid=471185)                                'entropy_from_logits_with_chunking': False,
+(TaskRunner pid=471185)                                'fsdp_config': {'forward_prefetch': False,
+(TaskRunner pid=471185)                                                'param_offload': True,
+(TaskRunner pid=471185)                                                'reshard_after_forward': True,
+(TaskRunner pid=471185)                                                'wrap_policy': {'min_num_params': 0}},
+(TaskRunner pid=471185)                                'log_prob_max_token_len_per_gpu': 36864,
+(TaskRunner pid=471185)                                'log_prob_micro_batch_size': None,
+(TaskRunner pid=471185)                                'log_prob_micro_batch_size_per_gpu': 8,
+(TaskRunner pid=471185)                                'log_prob_use_dynamic_bsz': True,
+(TaskRunner pid=471185)                                'strategy': 'fsdp',
+(TaskRunner pid=471185)                                'ulysses_sequence_parallel_size': 4,
+(TaskRunner pid=471185)                                'use_torch_compile': True},
+(TaskRunner pid=471185)                        'rollout': {'agent': {'agent_loop_config_path': None,
+(TaskRunner pid=471185)                                              'custom_async_server': {'name': 'PatchedvLLMServer',
+(TaskRunner pid=471185)                                                                      'path': 'pkg://agentlightning.verl.async_server'},
+(TaskRunner pid=471185)                                              'num_workers': 8},
+(TaskRunner pid=471185)                                    'calculate_log_probs': False,
+(TaskRunner pid=471185)                                    'disable_log_stats': True,
+(TaskRunner pid=471185)                                    'do_sample': True,
+(TaskRunner pid=471185)                                    'dtype': 'bfloat16',
+(TaskRunner pid=471185)                                    'enable_chunked_prefill': True,
+(TaskRunner pid=471185)                                    'enforce_eager': True,
+(TaskRunner pid=471185)                                    'engine_kwargs': {'sglang': {'attention_backend': None},
+(TaskRunner pid=471185)                                                      'vllm': {'disable_mm_preprocessor_cache': False,
+(TaskRunner pid=471185)                                                               'swap_space': None}},
+(TaskRunner pid=471185)                                    'free_cache_engine': True,
+(TaskRunner pid=471185)                                    'gpu_memory_utilization': 0.8,
+(TaskRunner pid=471185)                                    'ignore_eos': False,
+(TaskRunner pid=471185)                                    'layered_summon': False,
+(TaskRunner pid=471185)                                    'load_format': 'dummy',
+(TaskRunner pid=471185)                                    'log_prob_max_token_len_per_gpu': 36864,
+(TaskRunner pid=471185)                                    'log_prob_micro_batch_size': None,
+(TaskRunner pid=471185)                                    'log_prob_micro_batch_size_per_gpu': 4,
+(TaskRunner pid=471185)                                    'log_prob_use_dynamic_bsz': True,
+(TaskRunner pid=471185)                                    'max_model_len': None,
+(TaskRunner pid=471185)                                    'max_num_batched_tokens': 8192,
+(TaskRunner pid=471185)                                    'max_num_seqs': 1024,
+(TaskRunner pid=471185)                                    'mode': 'async',
+(TaskRunner pid=471185)                                    'multi_stage_wake_up': False,
+(TaskRunner pid=471185)                                    'multi_turn': {'completion_callback': None,
+(TaskRunner pid=471185)                                                   'enable': False,
+(TaskRunner pid=471185)                                                   'format': 'hermes',
+(TaskRunner pid=471185)                                                   'interaction_config_path': None,
+(TaskRunner pid=471185)                                                   'max_assistant_turns': None,
+(TaskRunner pid=471185)                                                   'max_parallel_calls': 1,
+(TaskRunner pid=471185)                                                   'max_tool_response_length': 256,
+(TaskRunner pid=471185)                                                   'max_user_turns': None,
+(TaskRunner pid=471185)                                                   'tokenization_sanity_check_mode': 'strict',
+(TaskRunner pid=471185)                                                   'tool_config_path': None,
+(TaskRunner pid=471185)                                                   'tool_response_truncate_side': 'middle',
+(TaskRunner pid=471185)                                                   'use_inference_chat_template': False},
+(TaskRunner pid=471185)                                    'n': 16,
+(TaskRunner pid=471185)                                    'name': 'vllm',
+(TaskRunner pid=471185)                                    'prompt_length': 2048,
+(TaskRunner pid=471185)                                    'response_length': 16384,
+(TaskRunner pid=471185)                                    'temperature': 1.0,
+(TaskRunner pid=471185)                                    'tensor_model_parallel_size': 4,
+(TaskRunner pid=471185)                                    'top_k': -1,
+(TaskRunner pid=471185)                                    'top_p': 1,
+(TaskRunner pid=471185)                                    'trace': {'backend': None,
+(TaskRunner pid=471185)                                              'token2text': False},
+(TaskRunner pid=471185)                                    'update_weights_bucket_megabytes': 512,
+(TaskRunner pid=471185)                                    'val_kwargs': {'do_sample': False,
+(TaskRunner pid=471185)                                                   'n': 30,
+(TaskRunner pid=471185)                                                   'temperature': 1.0,
+(TaskRunner pid=471185)                                                   'top_k': -1,
+(TaskRunner pid=471185)                                                   'top_p': 0.6}}},
+(TaskRunner pid=471185)  'agentlightning': {'port': 9999},
+(TaskRunner pid=471185)  'agentlightningserver': {'llm_timeout_seconds': 1200},
+(TaskRunner pid=471185)  'algorithm': {'_target_': 'verl.trainer.config.AlgoConfig',
+(TaskRunner pid=471185)                'adv_estimator': 'grpo',
+(TaskRunner pid=471185)                'gamma': 1.0,
+(TaskRunner pid=471185)                'kl_ctrl': {'_target_': 'verl.trainer.config.KLControlConfig',
+(TaskRunner pid=471185)                            'horizon': 10000,
+(TaskRunner pid=471185)                            'kl_coef': 0.0,
+(TaskRunner pid=471185)                            'target_kl': 0.1,
+(TaskRunner pid=471185)                            'type': 'fixed'},
+(TaskRunner pid=471185)                'kl_penalty': 'kl',
+(TaskRunner pid=471185)                'lam': 1.0,
+(TaskRunner pid=471185)                'norm_adv_by_std_in_grpo': True,
+(TaskRunner pid=471185)                'pf_ppo': {'_target_': 'verl.trainer.config.PFPPOConfig',
+(TaskRunner pid=471185)                           'reweight_method': 'pow',
+(TaskRunner pid=471185)                           'weight_pow': 2.0},
+(TaskRunner pid=471185)                'use_kl_in_reward': False,
+(TaskRunner pid=471185)                'use_pf_ppo': False},
+(TaskRunner pid=471185)  'critic': {'_target_': 'verl.trainer.config.FSDPCriticConfig',
+(TaskRunner pid=471185)             'checkpoint': {'load_contents': ['model', 'optimizer', 'extra'],
+(TaskRunner pid=471185)                            'save_contents': ['model', 'optimizer', 'extra']},
+(TaskRunner pid=471185)             'cliprange_value': 0.5,
+(TaskRunner pid=471185)             'forward_max_token_len_per_gpu': 32768,
+(TaskRunner pid=471185)             'forward_micro_batch_size': None,
+(TaskRunner pid=471185)             'forward_micro_batch_size_per_gpu': None,
+(TaskRunner pid=471185)             'grad_clip': 1.0,
+(TaskRunner pid=471185)             'loss_agg_mode': 'token-mean',
+(TaskRunner pid=471185)             'model': {'enable_activation_offload': False,
+(TaskRunner pid=471185)                       'enable_gradient_checkpointing': True,
+(TaskRunner pid=471185)                       'external_lib': None,
+(TaskRunner pid=471185)                       'fsdp_config': {'forward_prefetch': False,
+(TaskRunner pid=471185)                                       'fsdp_size': -1,
+(TaskRunner pid=471185)                                       'offload_policy': False,
+(TaskRunner pid=471185)                                       'optimizer_offload': False,
+(TaskRunner pid=471185)                                       'param_offload': False,
+(TaskRunner pid=471185)                                       'reshard_after_forward': True,
+(TaskRunner pid=471185)                                       'wrap_policy': {'min_num_params': 0}},
+(TaskRunner pid=471185)                       'lora_alpha': 16,
+(TaskRunner pid=471185)                       'lora_rank': 0,
+(TaskRunner pid=471185)                       'override_config': {},
+(TaskRunner pid=471185)                       'path': '~/models/deepseek-llm-7b-chat',
+(TaskRunner pid=471185)                       'target_modules': 'all-linear',
+(TaskRunner pid=471185)                       'tokenizer_path': '/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct',
+(TaskRunner pid=471185)                       'trust_remote_code': False,
+(TaskRunner pid=471185)                       'use_remove_padding': False,
+(TaskRunner pid=471185)                       'use_shm': False},
+(TaskRunner pid=471185)             'optim': {'lr': 1e-05,
+(TaskRunner pid=471185)                       'lr_warmup_steps_ratio': 0.0,
+(TaskRunner pid=471185)                       'min_lr_ratio': None,
+(TaskRunner pid=471185)                       'total_training_steps': -1,
+(TaskRunner pid=471185)                       'warmup_style': 'constant',
+(TaskRunner pid=471185)                       'weight_decay': 0.01},
+(TaskRunner pid=471185)             'ppo_epochs': 1,
+(TaskRunner pid=471185)             'ppo_max_token_len_per_gpu': 32768,
+(TaskRunner pid=471185)             'ppo_micro_batch_size': None,
+(TaskRunner pid=471185)             'ppo_micro_batch_size_per_gpu': None,
+(TaskRunner pid=471185)             'ppo_mini_batch_size': 32,
+(TaskRunner pid=471185)             'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+(TaskRunner pid=471185)                          'all_ranks': False,
+(TaskRunner pid=471185)                          'discrete': False,
+(TaskRunner pid=471185)                          'ranks': []},
+(TaskRunner pid=471185)             'rollout_n': 16,
+(TaskRunner pid=471185)             'shuffle': False,
+(TaskRunner pid=471185)             'strategy': 'fsdp',
+(TaskRunner pid=471185)             'ulysses_sequence_parallel_size': 1,
+(TaskRunner pid=471185)             'use_dynamic_bsz': True},
+(TaskRunner pid=471185)  'custom_reward_function': {'name': 'compute_score', 'path': None},
+(TaskRunner pid=471185)  'data': {'custom_cls': {'name': 'CustomRLHFDataset', 'path': 'retool.py'},
+(TaskRunner pid=471185)           'datagen': {'name': None, 'path': None},
+(TaskRunner pid=471185)           'dataloader_num_workers': 0,
+(TaskRunner pid=471185)           'filter_overlong_prompts': True,
+(TaskRunner pid=471185)           'filter_overlong_prompts_workers': 1,
+(TaskRunner pid=471185)           'image_key': 'images',
+(TaskRunner pid=471185)           'max_prompt_length': 2048,
+(TaskRunner pid=471185)           'max_response_length': 16384,
+(TaskRunner pid=471185)           'prompt_key': 'prompt',
+(TaskRunner pid=471185)           'return_full_prompt': False,
+(TaskRunner pid=471185)           'return_multi_modal_inputs': True,
+(TaskRunner pid=471185)           'return_raw_chat': True,
+(TaskRunner pid=471185)           'return_raw_input_ids': False,
+(TaskRunner pid=471185)           'reward_fn_key': 'data_source',
+(TaskRunner pid=471185)           'sampler': {'class_name': None, 'class_path': None},
+(TaskRunner pid=471185)           'shuffle': True,
+(TaskRunner pid=471185)           'tokenizer': None,
+(TaskRunner pid=471185)           'train_batch_size': 64,
+(TaskRunner pid=471185)           'train_files': ["['/apps/mingjiel/verl/datasets/BytedTsinghua-SIA/DAPO-Math-17k']"],
+(TaskRunner pid=471185)           'truncation': 'error',
+(TaskRunner pid=471185)           'trust_remote_code': False,
+(TaskRunner pid=471185)           'use_shm': False,
+(TaskRunner pid=471185)           'val_batch_size': None,
+(TaskRunner pid=471185)           'val_files': ["['/apps/mingjiel/verl/datasets/Maxwell-Jia/AIME_2024']"],
+(TaskRunner pid=471185)           'validation_shuffle': False,
+(TaskRunner pid=471185)           'video_key': 'videos'},
+(TaskRunner pid=471185)  'ray_init': {'num_cpus': None, 'timeline_json_file': None},
+(TaskRunner pid=471185)  'reward_model': {'enable': False,
+(TaskRunner pid=471185)                   'forward_max_token_len_per_gpu': 32768,
+(TaskRunner pid=471185)                   'launch_reward_fn_async': False,
+(TaskRunner pid=471185)                   'max_length': None,
+(TaskRunner pid=471185)                   'micro_batch_size': None,
+(TaskRunner pid=471185)                   'micro_batch_size_per_gpu': None,
+(TaskRunner pid=471185)                   'model': {'external_lib': None,
+(TaskRunner pid=471185)                             'fsdp_config': {'forward_prefetch': False,
+(TaskRunner pid=471185)                                             'fsdp_size': -1,
+(TaskRunner pid=471185)                                             'param_offload': False,
+(TaskRunner pid=471185)                                             'reshard_after_forward': True,
+(TaskRunner pid=471185)                                             'wrap_policy': {'min_num_params': 0}},
+(TaskRunner pid=471185)                             'input_tokenizer': '/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct',
+(TaskRunner pid=471185)                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+(TaskRunner pid=471185)                             'trust_remote_code': False,
+(TaskRunner pid=471185)                             'use_fused_kernels': False,
+(TaskRunner pid=471185)                             'use_remove_padding': False,
+(TaskRunner pid=471185)                             'use_shm': False},
+(TaskRunner pid=471185)                   'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+(TaskRunner pid=471185)                                'all_ranks': False,
+(TaskRunner pid=471185)                                'discrete': False,
+(TaskRunner pid=471185)                                'ranks': []},
+(TaskRunner pid=471185)                   'reward_manager': 'naive',
+(TaskRunner pid=471185)                   'sandbox_fusion': {'max_concurrent': 64,
+(TaskRunner pid=471185)                                      'memory_limit_mb': 1024,
+(TaskRunner pid=471185)                                      'url': None},
+(TaskRunner pid=471185)                   'strategy': 'fsdp',
+(TaskRunner pid=471185)                   'ulysses_sequence_parallel_size': 1,
+(TaskRunner pid=471185)                   'use_dynamic_bsz': True},
+(TaskRunner pid=471185)  'trainer': {'balance_batch': True,
+(TaskRunner pid=471185)              'controller_nsight_options': {'cuda-graph-trace': 'graph',
+(TaskRunner pid=471185)                                            'cuda-memory-usage': 'true',
+(TaskRunner pid=471185)                                            'trace': 'cuda,nvtx,cublas,ucx'},
+(TaskRunner pid=471185)              'critic_warmup': 0,
+(TaskRunner pid=471185)              'default_hdfs_dir': None,
+(TaskRunner pid=471185)              'default_local_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30',
+(TaskRunner pid=471185)              'del_local_ckpt_after_load': False,
+(TaskRunner pid=471185)              'device': 'cuda',
+(TaskRunner pid=471185)              'esi_redundant_time': 0,
+(TaskRunner pid=471185)              'experiment_name': 'NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30',
+(TaskRunner pid=471185)              'log_val_generations': 5,
+(TaskRunner pid=471185)              'logger': ['console', 'wandb'],
+(TaskRunner pid=471185)              'max_actor_ckpt_to_keep': 5,
+(TaskRunner pid=471185)              'max_critic_ckpt_to_keep': None,
+(TaskRunner pid=471185)              'n_gpus_per_node': 8,
+(TaskRunner pid=471185)              'nnodes': 1,
+(TaskRunner pid=471185)              'npu_profile': {'options': {'analysis': True,
+(TaskRunner pid=471185)                                          'level': 'level1',
+(TaskRunner pid=471185)                                          'record_shapes': False,
+(TaskRunner pid=471185)                                          'save_path': './profiler_data',
+(TaskRunner pid=471185)                                          'with_cpu': True,
+(TaskRunner pid=471185)                                          'with_memory': False,
+(TaskRunner pid=471185)                                          'with_module': False,
+(TaskRunner pid=471185)                                          'with_npu': True,
+(TaskRunner pid=471185)                                          'with_stack': False}},
+(TaskRunner pid=471185)              'profile_steps': None,
+(TaskRunner pid=471185)              'project_name': 'retool_rl_reproduce_amd',
+(TaskRunner pid=471185)              'ray_wait_register_center_timeout': 300,
+(TaskRunner pid=471185)              'resume_from_path': None,
+(TaskRunner pid=471185)              'resume_mode': 'auto',
+(TaskRunner pid=471185)              'rollout_data_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/rollout',
+(TaskRunner pid=471185)              'save_freq': 500,
+(TaskRunner pid=471185)              'test_freq': 5,
+(TaskRunner pid=471185)              'total_epochs': 1,
+(TaskRunner pid=471185)              'total_training_steps': 30,
+(TaskRunner pid=471185)              'use_legacy_worker_impl': 'auto',
+(TaskRunner pid=471185)              'val_before_train': True,
+(TaskRunner pid=471185)              'val_only': False,
+(TaskRunner pid=471185)              'validation_data_dir': '/workspace/agent-lightning-spider/agent-lightning/examples/qa_python_youtu_v013_amd/checkpoint/NewCode_qwen2.5-7b_grpo_turns8_16k_bs128_tp2_Last30/valid',
+(TaskRunner pid=471185)              'worker_nsight_options': {'capture-range': 'cudaProfilerApi',
+(TaskRunner pid=471185)                                        'capture-range-end': None,
+(TaskRunner pid=471185)                                        'cuda-graph-trace': 'graph',
+(TaskRunner pid=471185)                                        'cuda-memory-usage': 'true',
+(TaskRunner pid=471185)                                        'kill': 'none',
+(TaskRunner pid=471185)                                        'trace': 'cuda,nvtx,cublas,ucx'}}}
+(TaskRunner pid=471185) Setting TOKENIZERS_PARALLELISM=false for forked processes.
+(TaskRunner pid=471185) WARNING:2026-01-11 15:17:01,308:Setting TOKENIZERS_PARALLELISM=false for forked processes.
+(TaskRunner pid=471185) Map (num_proc=16):   0%|          | 0/1791700 [00:00<?, ? examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   0%|          | 1320/1791700 [00:00<15:38, 1908.71 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   0%|          | 5335/1791700 [00:00<03:48, 7818.66 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   1%|          | 10954/1791700 [00:00<01:47, 16630.56 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   1%|          | 19456/1791700 [00:01<00:57, 30610.88 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   2%|▏         | 30946/1791700 [00:01<00:35, 49628.31 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   3%|▎         | 44861/1791700 [00:01<00:24, 71129.38 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   3%|▎         | 62389/1791700 [00:01<00:17, 97369.66 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   5%|▍         | 83585/1791700 [00:01<00:13, 126891.04 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   6%|▌         | 103276/1791700 [00:01<00:11, 145339.75 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   7%|▋         | 128571/1791700 [00:01<00:09, 173270.08 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):   9%|▊         | 154350/1791700 [00:01<00:08, 196318.67 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  10%|█         | 181389/1791700 [00:01<00:07, 214861.60 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  12%|█▏        | 223463/1791700 [00:01<00:05, 273277.05 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  14%|█▍        | 252496/1791700 [00:02<00:05, 276716.78 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  16%|█▌        | 281272/1791700 [00:02<00:05, 278981.44 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  17%|█▋        | 311175/1791700 [00:02<00:05, 280374.53 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  19%|█▉        | 340062/1791700 [00:02<00:05, 282415.22 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  21%|██        | 370898/1791700 [00:02<00:04, 289096.94 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  22%|██▏       | 400667/1791700 [00:02<00:04, 282041.16 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  24%|██▍       | 431289/1791700 [00:02<00:04, 287678.83 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  26%|██▌       | 463631/1791700 [00:02<00:04, 292906.49 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  28%|██▊       | 498164/1791700 [00:02<00:04, 303111.10 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  30%|██▉       | 530138/1791700 [00:03<00:04, 303516.86 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  31%|███▏      | 560772/1791700 [00:03<00:04, 300597.82 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  33%|███▎      | 590892/1791700 [00:03<00:04, 290147.44 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  35%|███▍      | 620087/1791700 [00:03<00:04, 268354.44 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  36%|███▋      | 649532/1791700 [00:03<00:04, 275051.99 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  38%|███▊      | 685940/1791700 [00:03<00:03, 293226.78 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  41%|████      | 726134/1791700 [00:03<00:03, 317827.85 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  43%|████▎     | 766588/1791700 [00:03<00:03, 339189.45 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  45%|████▌     | 810256/1791700 [00:03<00:02, 365167.99 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  48%|████▊     | 852079/1791700 [00:03<00:02, 377761.36 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  50%|████▉     | 890552/1791700 [00:04<00:02, 372676.64 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  52%|█████▏    | 928488/1791700 [00:04<00:02, 350696.35 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  54%|█████▍    | 965407/1791700 [00:04<00:02, 343669.41 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  56%|█████▌    | 1000834/1791700 [00:04<00:02, 334892.31 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  58%|█████▊    | 1035469/1791700 [00:04<00:02, 317068.04 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  60%|█████▉    | 1067793/1791700 [00:04<00:02, 315513.15 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  61%|██████▏   | 1100666/1791700 [00:04<00:02, 307695.69 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  64%|██████▎   | 1139141/1791700 [00:04<00:02, 324488.34 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  66%|██████▌   | 1177095/1791700 [00:04<00:01, 337980.72 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  68%|██████▊   | 1211914/1791700 [00:05<00:01, 337656.07 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  70%|██████▉   | 1246743/1791700 [00:05<00:01, 336451.27 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  71%|███████▏  | 1280549/1791700 [00:05<00:01, 332236.67 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  73%|███████▎  | 1314426/1791700 [00:05<00:01, 307736.30 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  75%|███████▌  | 1345783/1791700 [00:05<00:01, 284431.56 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  77%|███████▋  | 1376461/1791700 [00:05<00:01, 289481.39 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  79%|███████▉  | 1411119/1791700 [00:05<00:01, 301236.18 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  81%|████████  | 1451734/1791700 [00:05<00:01, 327733.44 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  83%|████████▎ | 1489827/1791700 [00:05<00:00, 341300.99 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  85%|████████▌ | 1525486/1791700 [00:06<00:00, 340844.56 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  87%|████████▋ | 1560817/1791700 [00:06<00:00, 332478.46 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  89%|████████▉ | 1594752/1791700 [00:06<00:00, 331505.90 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  91%|█████████ | 1629097/1791700 [00:06<00:00, 297106.26 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  93%|█████████▎| 1660097/1791700 [00:06<00:00, 274102.86 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  94%|█████████▍| 1688888/1791700 [00:06<00:00, 245545.33 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  96%|█████████▌| 1714742/1791700 [00:06<00:00, 235077.82 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  97%|█████████▋| 1739018/1791700 [00:06<00:00, 224378.92 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16):  98%|█████████▊| 1762869/1791700 [00:07<00:00, 208637.39 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16): 100%|█████████▉| 1784200/1791700 [00:07<00:00, 166758.84 examples/s]
+(TaskRunner pid=471185) Map (num_proc=16): 100%|██████████| 1791700/1791700 [00:07<00:00, 223978.41 examples/s]
+(TaskRunner pid=471185) dataframe:Dataset({
+(TaskRunner pid=471185)     features: ['data_source', 'prompt', 'ability', 'reward_model', 'extra_info', 'agent_name'],
+(TaskRunner pid=471185)     num_rows: 1791700
+(TaskRunner pid=471185) })
+(TaskRunner pid=471185) dataset len: 1791700
+(TaskRunner pid=471185) Map:   0%|          | 0/30 [00:00<?, ? examples/s]Map: 100%|██████████| 30/30 [00:00<00:00, 2698.57 examples/s]
+(TaskRunner pid=471185) DeprecationWarning: `ray.state.available_resources_per_node` is a private attribute and access will be removed in a future Ray version.
+(TaskRunner pid=471185) dataframe:Dataset({
+(TaskRunner pid=471185)     features: ['data_source', 'prompt', 'ability', 'reward_model', 'agent_name'],
+(TaskRunner pid=471185)     num_rows: 30
+(TaskRunner pid=471185) })
+(TaskRunner pid=471185) dataset len: 30
+(TaskRunner pid=471185) tilearn roll packer disabled!!!
+(TaskRunner pid=471185) [validate_config] All configuration checks passed successfully!
+(TaskRunner pid=471185) Size of train dataloader: 27995, Size of val dataloader: 1
+(TaskRunner pid=471185) Total training steps: 30
+(TaskRunner pid=471185) colocated worker base class <class 'verl.single_controller.base.worker.Worker'>
+(TaskRunner pid=471185) bind role actor_rollout method chat_completion to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) bind role actor_rollout method execute_method to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) bind role actor_rollout method generate to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) bind role actor_rollout method get_zeromq_address to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) bind role actor_rollout method sleep to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) bind role actor_rollout method wake_up to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+(TaskRunner pid=471185) WARNING:2026-01-11 15:17:11,092:Waiting for register center actor u29o9p_register_center to be ready. Elapsed time: 0 seconds out of 300 seconds.
+(pid=476291) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(pid=476473) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(pid=476470) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(WorkerDict pid=476291) [Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+(WorkerDict pid=476291) [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+(WorkerDict pid=476291) [Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+(WorkerDict pid=476291) `torch_dtype` is deprecated! Use `dtype` instead!
+(WorkerDict pid=476291) Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+(WorkerDict pid=476291) Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+(WorkerDict pid=476291) Model config after override: Qwen2Config {
+(WorkerDict pid=476291)   "architectures": [
+(WorkerDict pid=476291)     "Qwen2ForCausalLM"
+(WorkerDict pid=476291)   ],
+(WorkerDict pid=476291)   "attention_dropout": 0.0,
+(WorkerDict pid=476291)   "dtype": "bfloat16",
+(WorkerDict pid=476291)   "eos_token_id": 151645,
+(WorkerDict pid=476291)   "hidden_act": "silu",
+(WorkerDict pid=476291)   "hidden_size": 1536,
+(WorkerDict pid=476291)   "initializer_range": 0.02,
+(WorkerDict pid=476291)   "intermediate_size": 8960,
+(WorkerDict pid=476291)   "layer_types": [
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention",
+(WorkerDict pid=476291)     "full_attention"
+(WorkerDict pid=476291)   ],
+(WorkerDict pid=476291)   "max_position_embeddings": 32768,
+(WorkerDict pid=476291)   "max_window_layers": 28,
+(WorkerDict pid=476291)   "model_type": "qwen2",
+(WorkerDict pid=476291)   "num_attention_heads": 12,
+(WorkerDict pid=476291)   "num_hidden_layers": 28,
+(WorkerDict pid=476291)   "num_key_value_heads": 2,
+(WorkerDict pid=476291)   "pad_token_id": 151643,
+(WorkerDict pid=476291)   "rms_norm_eps": 1e-06,
+(WorkerDict pid=476291)   "rope_scaling": null,
+(WorkerDict pid=476291)   "rope_theta": 1000000.0,
+(WorkerDict pid=476291)   "sliding_window": null,
+(WorkerDict pid=476291)   "tie_word_embeddings": true,
+(WorkerDict pid=476291)   "transformers_version": "4.57.1",
+(WorkerDict pid=476291)   "use_cache": true,
+(WorkerDict pid=476291)   "use_sliding_window": false,
+(WorkerDict pid=476291)   "vocab_size": 151936
+(WorkerDict pid=476291) }
+(WorkerDict pid=476291) 
+(WorkerDict pid=476471) Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+(WorkerDict pid=476471) Skipping monkey patch for Qwen2ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+(WorkerDict pid=476291) Qwen2ForCausalLM contains 1.54B parameters
+(WorkerDict pid=476291) wrap_policy: functools.partial(<function _or_policy at 0x7fff85469a80>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7fff85469940>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re7
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re7
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re6
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re6
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re5
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re5
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re4
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re4
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re3
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re3
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re2
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re2
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re1
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re1
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0
+(WorkerDict pid=476291) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0
+(pid=476474) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead. [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)
+(WorkerDict pid=476474) `torch_dtype` is deprecated! Use `dtype` instead! [repeated 7x across cluster]
+(WorkerDict pid=476474) Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)` [repeated 14x across cluster]
+(WorkerDict pid=476291) RCCL version : 2.26.6-HEAD:64f48b6
+(WorkerDict pid=476291) HIP version  : 7.0.51831-7c9236b16
+(WorkerDict pid=476291) ROCm version : 7.0.2.0-56-9428210
+(WorkerDict pid=476291) Hostname     : mi308-ccs-aus-e07-03.prov.aus.ccs.cpe.ice.amd.com
+(WorkerDict pid=476291) Librccl path : /opt/rocm/lib/librccl.so.1
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 1 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 1 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 4 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 6 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 7 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 5 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 4 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 7 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:17:33
+(WorkerDict pid=476472) [Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3 [repeated 21x across cluster]
+(WorkerDict pid=476291) Monkey patch _flash_attention_forward in transformers.integrations.flash_attention [repeated 7x across cluster]
+(WorkerDict pid=476291) Skipping monkey patch for Qwen2ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch [repeated 7x across cluster]
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476473:477354 [4] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476291) Total steps: 30, num_warmup_steps: 0
+(WorkerDict pid=476291) Actor use_remove_padding=True
+(WorkerDict pid=476291) Actor use_fused_kernels=False
+(WorkerDict pid=476470)  not find any local path from gpu 1 to net.
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476291) ] mi308-ccs-aus-e07-03:476291:477353 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 1 to net.
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476473) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [plugins/__init__.py:28] No plugins for group vllm.platform_plugins found.
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:34] Checking if TPU platform is available.
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:52] TPU platform is not available because: No module named 'libtpu'
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:58] Checking if CUDA platform is available.
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:82] Exception happens when checking CUDA platform: NVML Shared Library Not Found
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:99] CUDA platform is not available because: NVML Shared Library Not Found
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:106] Checking if ROCm platform is available.
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476472) 
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:113] Confirmed ROCm platform is available.
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:127] Checking if XPU platform is available.
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:146] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+(WorkerDict pid=476291) DEBUG 01-11 15:17:36 [platforms/__init__.py:153] Checking if CPU platform is available.
+(WorkerDict pid=476291) INFO 01-11 15:17:37 [platforms/__init__.py:216] Automatically detected platform rocm.
+(WorkerDict pid=476474) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.deepseek_v2.DeepseekV2Model'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+(WorkerDict pid=476474) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.mixtral.MixtralModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+(WorkerDict pid=476474) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.qwen2_moe.Qwen2MoeModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+(WorkerDict pid=476474) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.qwen3_moe.Qwen3MoeModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+(WorkerDict pid=476472) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476472:477355 [3] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net. [repeated 202x across cluster]
+(WorkerDict pid=476472) [Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3 [repeated 16x across cluster]
+(WorkerDict pid=476472) [2026-01-11 15:17:33] mi308-ccs-aus-e07-03:476472:477355 [3] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could [repeated 6x across cluster]
+(WorkerDict pid=476474) /usr/local/lib/python3.12/dist-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+(WorkerDict pid=476474)   warnings.warn(
+(WorkerDict pid=476475) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0 [repeated 112x across cluster]
+(WorkerDict pid=476472)  not find any local path from gpu 1 to net. [repeated 6x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [plugins/__init__.py:28] No plugins for group vllm.platform_plugins found. [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:34] Checking if TPU platform is available. [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:52] TPU platform is not available because: No module named 'libtpu' [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:58] Checking if CUDA platform is available. [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:82] Exception happens when checking CUDA platform: NVML Shared Library Not Found [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:99] CUDA platform is not available because: NVML Shared Library Not Found [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:106] Checking if ROCm platform is available. [repeated 19x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:113] Confirmed ROCm platform is available. [repeated 19x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:127] Checking if XPU platform is available. [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:146] XPU platform is not available because: No module named 'intel_extension_for_pytorch' [repeated 9x across cluster]
+(pid=478132) DEBUG 01-11 15:17:45 [platforms/__init__.py:153] Checking if CPU platform is available. [repeated 9x across cluster]
+(pid=478132) INFO 01-11 15:17:45 [platforms/__init__.py:216] Automatically detected platform rocm. [repeated 9x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.qwen3_moe.Qwen3MoeModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds'] [repeated 21x across cluster]
+(WorkerDict pid=476470) DEBUG 01-11 15:17:38 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.mixtral.MixtralModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds'] [repeated 7x across cluster]
+(PatchedvLLMServer pid=478132) FastAPI listen on 10.235.192.105:41909
+(PatchedvLLMServer pid=478132) override_generation_config: {'n': 16, 'logprobs': 0, 'repetition_penalty': 1.0, 'max_new_tokens': 16384, 'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'ignore_eos': False}
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:50 [plugins/__init__.py:36] Available plugins for group vllm.general_plugins:
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:50 [plugins/__init__.py:38] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:50 [plugins/__init__.py:41] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+(PatchedvLLMServer pid=478132) `torch_dtype` is deprecated! Use `dtype` instead!
+(WorkerDict pid=476475) /usr/local/lib/python3.12/dist-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html . [repeated 7x across cluster]
+(WorkerDict pid=476475)   warnings.warn( [repeated 7x across cluster]
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:55 [config/__init__.py:742] Resolved architecture: Qwen2ForCausalLM
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:55 [config/__init__.py:1815] Using max model len 18432
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:55 [engine/arg_utils.py:1208] Using ray runtime env: {'env_vars': {'NCCL_DEBUG': 'WARN', 'TOKENIZERS_PARALLELISM': 'true', 'VLLM_LOGGING_LEVEL': 'DEBUG'}}
+(pid=478133) DEBUG 01-11 15:17:45 [plugins/__init__.py:28] No plugins for group vllm.platform_plugins found.
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:34] Checking if TPU platform is available.
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:52] TPU platform is not available because: No module named 'libtpu'
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:58] Checking if CUDA platform is available.
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:82] Exception happens when checking CUDA platform: NVML Shared Library Not Found
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:99] CUDA platform is not available because: NVML Shared Library Not Found
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:106] Checking if ROCm platform is available. [repeated 2x across cluster]
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:113] Confirmed ROCm platform is available. [repeated 2x across cluster]
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:127] Checking if XPU platform is available.
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:146] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+(pid=478133) DEBUG 01-11 15:17:45 [platforms/__init__.py:153] Checking if CPU platform is available.
+(pid=478133) INFO 01-11 15:17:45 [platforms/__init__.py:216] Automatically detected platform rocm.
+(PatchedvLLMServer pid=478133) FastAPI listen on 10.235.192.105:34211
+(PatchedvLLMServer pid=478133) override_generation_config: {'n': 16, 'logprobs': 0, 'repetition_penalty': 1.0, 'max_new_tokens': 16384, 'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'ignore_eos': False}
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:50 [plugins/__init__.py:36] Available plugins for group vllm.general_plugins:
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:50 [plugins/__init__.py:38] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:50 [plugins/__init__.py:41] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:55 [config/scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:55 [config/__init__.py:3400] Cudagraph is disabled under eager mode
+(PatchedvLLMServer pid=478132) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(PatchedvLLMServer pid=478132) instance_id: fd70b0a4-8465-49e9-a9fa-a5576699dc5a:u29o9p:2:0 initializes with external actors: ['u29o9pWorkerDict_0:0', 'u29o9pWorkerDict_0:1', 'u29o9pWorkerDict_0:2', 'u29o9pWorkerDict_0:3']
+(PatchedvLLMServer pid=478132) VERL_VLLM_ZMQ_ADDRESSES: ['ipc:///tmp/verl_vllm_zmq_476291.ipc', 'ipc:///tmp/verl_vllm_zmq_476470.ipc', 'ipc:///tmp/verl_vllm_zmq_476471.ipc', 'ipc:///tmp/verl_vllm_zmq_476472.ipc']
+(PatchedvLLMServer pid=478132) WARNING 01-11 15:17:56 [utils/__init__.py:2974] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned; CUDA is initialized
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [plugins/__init__.py:28] No plugins for group vllm.platform_plugins found.
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:34] Checking if TPU platform is available.
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:52] TPU platform is not available because: No module named 'libtpu'
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:58] Checking if CUDA platform is available.
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:82] Exception happens when checking CUDA platform: NVML Shared Library Not Found
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:99] CUDA platform is not available because: NVML Shared Library Not Found
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:127] Checking if XPU platform is available.
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:146] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:17:59 [platforms/__init__.py:153] Checking if CPU platform is available.
+(PatchedvLLMServer pid=478132) INFO 01-11 15:17:59 [platforms/__init__.py:216] Automatically detected platform rocm.
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) INFO 01-11 15:18:01 [v1/engine/core.py:654] Waiting for init message from front-end.
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:01 [v1/engine/utils.py:856] HELLO from local core engine process 0.
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) DEBUG 01-11 15:18:01 [v1/engine/core.py:662] Received init message: EngineHandshakeMetadata(addresses=EngineZmqAddresses(inputs=['ipc:///tmp/d8328fd3-bc7e-4f3c-9a92-e5863f9fe817'], outputs=['ipc:///tmp/d1f1c42e-7318-4b3d-8a6f-1e0afaf9ba10'], coordinator_input=None, coordinator_output=None, frontend_stats_publish_address=None), parallel_config={'data_parallel_master_ip': '127.0.0.1', 'data_parallel_master_port': 0, '_data_parallel_master_port_list': [], 'data_parallel_size': 1})
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) DEBUG 01-11 15:18:01 [v1/engine/core.py:494] Has DP Coordinator: False, stats publish address: None
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) DEBUG 01-11 15:18:01 [plugins/__init__.py:36] Available plugins for group vllm.general_plugins:
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) DEBUG 01-11 15:18:01 [plugins/__init__.py:38] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) DEBUG 01-11 15:18:01 [plugins/__init__.py:41] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+(PatchedvLLMServer pid=478132) (EngineCore_DP0 pid=478391) INFO 01-11 15:18:01 [v1/engine/core.py:76] Initializing a V1 LLM engine (v0.1.dev9404+g8ecd6e3dd) with config: model='/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct', speculative_config=None, tokenizer='/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=18432, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=True, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":null,"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":0,"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":0,"local_cache_dir":null}
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:55 [config/__init__.py:742] Resolved architecture: Qwen2ForCausalLM
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:55 [config/__init__.py:1815] Using max model len 18432
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:55 [engine/arg_utils.py:1208] Using ray runtime env: {'env_vars': {'NCCL_DEBUG': 'WARN', 'TOKENIZERS_PARALLELISM': 'true', 'VLLM_LOGGING_LEVEL': 'DEBUG'}}
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:106] Checking if ROCm platform is available. [repeated 4x across cluster]
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:113] Confirmed ROCm platform is available. [repeated 4x across cluster]
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:55 [config/scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:55 [config/__init__.py:3400] Cudagraph is disabled under eager mode
+(PatchedvLLMServer pid=478133) instance_id: fd70b0a4-8465-49e9-a9fa-a5576699dc5a:u29o9p:2:1 initializes with external actors: ['u29o9pWorkerDict_0:4', 'u29o9pWorkerDict_0:5', 'u29o9pWorkerDict_0:6', 'u29o9pWorkerDict_0:7']
+(PatchedvLLMServer pid=478133) VERL_VLLM_ZMQ_ADDRESSES: ['ipc:///tmp/verl_vllm_zmq_476473.ipc', 'ipc:///tmp/verl_vllm_zmq_476475.ipc', 'ipc:///tmp/verl_vllm_zmq_476474.ipc', 'ipc:///tmp/verl_vllm_zmq_476476.ipc']
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama_eagle3.LlamaModel'>: ['input_ids', 'positions', 'hidden_states']
+(PatchedvLLMServer pid=478133) WARNING 01-11 15:17:56 [utils/__init__.py:2974] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned; CUDA is initialized
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [utils/__init__.py:3126] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fff30bb8e90>
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [config/__init__.py:3769] enabled custom ops: Counter()
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [config/__init__.py:3771] disabled custom ops: Counter()
+(WorkerDict pid=476471) [rank2]:[W111 15:18:01.535531929 ProcessGroupNCCL.cpp:981] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+(PatchedvLLMServer pid=478133) `torch_dtype` is deprecated! Use `dtype` instead!
+(PatchedvLLMServer pid=478133) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(WorkerDict pid=476471) DEBUG 01-11 15:18:01 [distributed/parallel_state.py:988] world_size=4 rank=2 local_rank=0 distributed_init_method=env:// backend=nccl
+(WorkerDict pid=476291) [Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+(WorkerDict pid=476291) DEBUG 01-11 15:18:01 [distributed/parallel_state.py:1040] Detected 1 nodes in the distributed environment
+(WorkerDict pid=476291) [Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+(WorkerDict pid=476291) INFO 01-11 15:18:01 [utils/__init__.py:1433] Found nccl from library librccl.so.1
+(WorkerDict pid=476291) INFO 01-11 15:18:01 [distributed/device_communicators/pynccl.py:70] vLLM is using nccl==2.26.6
+(WorkerDict pid=476291) Exception in thread Thread-2 (_loop_forever):
+(WorkerDict pid=476291) Traceback (most recent call last):
+(WorkerDict pid=476291)   File "/usr/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+(WorkerDict pid=476291)     self.run()
+(WorkerDict pid=476291)   File "/usr/lib/python3.12/threading.py", line 1012, in run
+(WorkerDict pid=476291)     self._target(*self._args, **self._kwargs)
+(WorkerDict pid=476291)   File "/usr/local/lib/python3.12/dist-packages/verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py", line 453, in _loop_forever
+(WorkerDict pid=476291)     result = self.execute_method(method, *args, **kwargs)
+(WorkerDict pid=476291)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/usr/local/lib/python3.12/dist-packages/verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py", line 501, in execute_method
+(WorkerDict pid=476291)     return self.inference_engine.execute_method(method, *args, **kwargs)
+(WorkerDict pid=476291)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 628, in execute_method
+(WorkerDict pid=476291)     raise e
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 619, in execute_method
+(WorkerDict pid=476291)     return run_method(self, method, args, kwargs)
+(WorkerDict pid=476291)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/utils/__init__.py", line 3060, in run_method
+(WorkerDict pid=476291)     return func(*args, **kwargs)
+(WorkerDict pid=476291)            ^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 611, in init_device
+(WorkerDict pid=476291)     self.worker.init_device()  # type: ignore
+(WorkerDict pid=476291)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 193, in init_device
+(WorkerDict pid=476291)     init_worker_distributed_environment(self.vllm_config, self.rank,
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 692, in init_worker_distributed_environment
+(WorkerDict pid=476291)     ensure_model_parallel_initialized(
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1185, in ensure_model_parallel_initialized
+(WorkerDict pid=476291)     initialize_model_parallel(tensor_model_parallel_size,
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1109, in initialize_model_parallel
+(WorkerDict pid=476291)     _TP = init_model_parallel_group(group_ranks,
+(WorkerDict pid=476291)           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 883, in init_model_parallel_group
+(WorkerDict pid=476291)     return GroupCoordinator(
+(WorkerDict pid=476291)            ^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 262, in __init__
+(WorkerDict pid=476291)     self.device_communicator = device_comm_cls(
+(WorkerDict pid=476291)                                ^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/cuda_communicator.py", line 52, in __init__
+(WorkerDict pid=476291)     self.pynccl_comm = PyNcclCommunicator(
+(WorkerDict pid=476291)                        ^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl.py", line 100, in __init__
+(WorkerDict pid=476291)     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+(WorkerDict pid=476291)                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 301, in ncclCommInitRank
+(WorkerDict pid=476291)     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+(WorkerDict pid=476291)   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 272, in NCCL_CHECK
+(WorkerDict pid=476291)     raise RuntimeError(f"NCCL error: {error_str}")
+(WorkerDict pid=476291) RuntimeError: NCCL error: invalid usage (run with NCCL_DEBUG=WARN for details)
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627] Error executing method 'init_device'. This might cause deadlock in distributed execution.
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627] Traceback (most recent call last):
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 619, in execute_method
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return run_method(self, method, args, kwargs)
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/utils/__init__.py", line 3060, in run_method
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return func(*args, **kwargs)
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]            ^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 611, in init_device
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.worker.init_device()  # type: ignore
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 193, in init_device
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     init_worker_distributed_environment(self.vllm_config, self.rank,
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 692, in init_worker_distributed_environment
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     ensure_model_parallel_initialized(
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1185, in ensure_model_parallel_initialized
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     initialize_model_parallel(tensor_model_parallel_size,
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1109, in initialize_model_parallel
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     _TP = init_model_parallel_group(group_ranks,
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 883, in init_model_parallel_group
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return GroupCoordinator(
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]            ^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 262, in __init__
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.device_communicator = device_comm_cls(
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                                ^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/cuda_communicator.py", line 52, in __init__
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.pynccl_comm = PyNcclCommunicator(
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                        ^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl.py", line 100, in __init__
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 301, in ncclCommInitRank
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 272, in NCCL_CHECK
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     raise RuntimeError(f"NCCL error: {error_str}")
+(WorkerDict pid=476291) ERROR 01-11 15:18:02 [worker/worker_base.py:627] RuntimeError: NCCL error: invalid usage (run with NCCL_DEBUG=WARN for details)
+(WorkerDict pid=476291) 
+(WorkerDict pid=476291) [2026-01-11 15:18:02] mi308-ccs-aus-e07-03:476291:478113 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/init.cc:1108 NCCL WARN Duplicate GPU detected : rank 0 and rank 1 both on CUDA device 5000
+(WorkerDict pid=476473) RCCL version : 2.26.6-HEAD:64f48b6
+(WorkerDict pid=476473) HIP version  : 7.0.51831-7c9236b16
+(WorkerDict pid=476473) ROCm version : 7.0.2.0-56-9428210
+(WorkerDict pid=476473) Hostname     : mi308-ccs-aus-e07-03.prov.aus.ccs.cpe.ice.amd.com
+(WorkerDict pid=476473) Librccl path : /opt/rocm/lib/librccl.so.1
+(WorkerDict pid=476473) 
+(WorkerDict pid=476470) 
+(WorkerDict pid=476474) 
+(WorkerDict pid=476476) 
+(WorkerDict pid=476471) 
+(WorkerDict pid=476475) 
+(WorkerDict pid=476472) 
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:11 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [plugins/__init__.py:28] No plugins for group vllm.platform_plugins found.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:34] Checking if TPU platform is available.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:52] TPU platform is not available because: No module named 'libtpu'
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:58] Checking if CUDA platform is available.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:82] Exception happens when checking CUDA platform: NVML Shared Library Not Found
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:99] CUDA platform is not available because: NVML Shared Library Not Found
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:127] Checking if XPU platform is available.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:146] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:17:59 [platforms/__init__.py:153] Checking if CPU platform is available.
+(PatchedvLLMServer pid=478133) INFO 01-11 15:17:59 [platforms/__init__.py:216] Automatically detected platform rocm.
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) INFO 01-11 15:18:01 [v1/engine/core.py:654] Waiting for init message from front-end.
+(PatchedvLLMServer pid=478133) DEBUG 01-11 15:18:01 [v1/engine/utils.py:856] HELLO from local core engine process 0.
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) DEBUG 01-11 15:18:01 [v1/engine/core.py:662] Received init message: EngineHandshakeMetadata(addresses=EngineZmqAddresses(inputs=['ipc:///tmp/eadd71fc-fd1b-4c3e-8724-e53c865bef2a'], outputs=['ipc:///tmp/f0977aa7-3ffb-478b-bede-a5e4aa7713d4'], coordinator_input=None, coordinator_output=None, frontend_stats_publish_address=None), parallel_config={'data_parallel_master_ip': '127.0.0.1', 'data_parallel_master_port': 0, '_data_parallel_master_port_list': [], 'data_parallel_size': 1})
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) DEBUG 01-11 15:18:01 [v1/engine/core.py:494] Has DP Coordinator: False, stats publish address: None
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) DEBUG 01-11 15:18:01 [plugins/__init__.py:36] Available plugins for group vllm.general_plugins: [repeated 9x across cluster]
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) DEBUG 01-11 15:18:01 [plugins/__init__.py:38] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver [repeated 9x across cluster]
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) DEBUG 01-11 15:18:01 [plugins/__init__.py:41] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load. [repeated 9x across cluster]
+(PatchedvLLMServer pid=478133) (EngineCore_DP0 pid=478395) INFO 01-11 15:18:01 [v1/engine/core.py:76] Initializing a V1 LLM engine (v0.1.dev9404+g8ecd6e3dd) with config: model='/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct', speculative_config=None, tokenizer='/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=18432, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=True, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/apps/mingjiel/Qwen/Qwen2.5-Coder-1.5B-Instruct, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":null,"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":0,"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":0,"local_cache_dir":null}
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds'] [repeated 7x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [compilation/decorators.py:153] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama_eagle3.LlamaModel'>: ['input_ids', 'positions', 'hidden_states'] [repeated 7x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [utils/__init__.py:3126] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fff3c8c1220> [repeated 7x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [config/__init__.py:3769] enabled custom ops: Counter() [repeated 7x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [config/__init__.py:3771] disabled custom ops: Counter() [repeated 7x across cluster]
+(WorkerDict pid=476475) DEBUG 01-11 15:18:01 [distributed/parallel_state.py:988] world_size=4 rank=5 local_rank=0 distributed_init_method=env:// backend=nccl [repeated 7x across cluster]
+(WorkerDict pid=476472) [Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3 [repeated 14x across cluster]
+(WorkerDict pid=476472) DEBUG 01-11 15:18:01 [distributed/parallel_state.py:1040] Detected 1 nodes in the distributed environment [repeated 7x across cluster]
+(WorkerDict pid=476472) INFO 01-11 15:18:01 [utils/__init__.py:1433] Found nccl from library librccl.so.1 [repeated 7x across cluster]
+(WorkerDict pid=476472) INFO 01-11 15:18:01 [distributed/device_communicators/pynccl.py:70] vLLM is using nccl==2.26.6 [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627] Error executing method 'init_device'. This might cause deadlock in distributed execution. [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627] Traceback (most recent call last): [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/worker/worker_base.py", line 619, in execute_method [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return run_method(self, method, args, kwargs) [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ [repeated 14x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/utils/__init__.py", line 3060, in run_method [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return func(*args, **kwargs) [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]            ^^^^^^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 193, in init_device [repeated 14x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.worker.init_device()  # type: ignore [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     ^^^^^^^^^^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     init_worker_distributed_environment(self.vllm_config, self.rank, [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/v1/worker/gpu_worker.py", line 692, in init_worker_distributed_environment [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     ensure_model_parallel_initialized( [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1185, in ensure_model_parallel_initialized [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     initialize_model_parallel(tensor_model_parallel_size, [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 1109, in initialize_model_parallel [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     _TP = init_model_parallel_group(group_ranks, [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/parallel_state.py", line 883, in init_model_parallel_group [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     return GroupCoordinator( [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]            ^^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl.py", line 100, in __init__ [repeated 21x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.device_communicator = device_comm_cls( [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                                ^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.pynccl_comm = PyNcclCommunicator( [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                        ^^^^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank( [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^ [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 301, in ncclCommInitRank [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm), [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]   File "/workspace/adhoc/vllm_0111rc2_tencent/vllm/distributed/device_communicators/pynccl_wrapper.py", line 272, in NCCL_CHECK [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627]     raise RuntimeError(f"NCCL error: {error_str}") [repeated 7x across cluster]
+(WorkerDict pid=476472) ERROR 01-11 15:18:02 [worker/worker_base.py:627] RuntimeError: NCCL error: invalid usage (run with NCCL_DEBUG=WARN for details) [repeated 7x across cluster]
+(WorkerDict pid=476472) [2026-01-11 15:18:02] mi308-ccs-aus-e07-03:476472:478110 [0] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/init.cc:1108 NCCL WARN Duplicate GPU detected : rank 3 and rank 0 both on CUDA device 5000 [repeated 7x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:21 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:31 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:41 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:18:51 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:01 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:11 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:21 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:31 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:41 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:19:51 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:01 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:11 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:21 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:31 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:41 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:20:51 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
+(PatchedvLLMServer pid=478132) DEBUG 01-11 15:21:01 [v1/engine/utils.py:773] Waiting for 1 local, 0 remote core engine proc(s) to start. [repeated 2x across cluster]
