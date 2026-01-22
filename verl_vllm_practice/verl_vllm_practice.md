@@ -12,73 +12,10 @@
 ## init device 问题
 
 
-修改ray和vllm  <br> * 在verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py +476禁用monkey patch可以解决compute_logits问题。 <br>  * 通过之前issue async server error <br>  https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427 可以解决collective_rpc重载non_block问题
+1. 修改ray和vllm,见下面code  
+2.  在verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py +476禁用monkey patch可以解决compute_logits问题。 
+3. 通过 https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427 可以解决collective_rpc重载non_block问题
 
-
-## compute_score() 接口问题
-修改 verl/experimental/reward/reward_loop/naive.py 用下面code 覆盖
-~~~~
-async def run_single(self, data: DataProto) -> dict:
-        assert len(data) == 1, "Only support single data item"
-        data_item = data[0]
-        response_ids = data_item.batch["responses"]
-        response_length = response_ids.shape[-1]
-        valid_response_length = data_item.batch["attention_mask"][-response_length:].sum()
-        valid_response_ids = response_ids[:valid_response_length]
-        data_source = data_item.non_tensor_batch["data_source"]
-        ground_truth = data_item.non_tensor_batch["reward_model"]["ground_truth"]
-        extra_info = data_item.non_tensor_batch.get("extra_info", {})
-        tool_extra_fields = data_item.non_tensor_batch.get("tool_extra_fields", None)
-        if tool_extra_fields is not None:
-            extra_info.update(tool_extra_fields.items())
-        num_turns = data_item.non_tensor_batch.get("__num_turns__", None)
-        rollout_reward_scores = data_item.non_tensor_batch.get("reward_scores", {})
-        extra_info["num_turns"] = num_turns
-        extra_info["rollout_reward_scores"] = rollout_reward_scores
-        response_str = await self.loop.run_in_executor(
-            None, lambda: self.tokenizer.decode(valid_response_ids, skip_special_tokens=True)
-        )
-        extra_reward_kwargs = (
-            {
-                "reward_router_address": self.reward_router_address,
-                "reward_model_tokenizer": self.reward_model_tokenizer,
-            }
-            if self.reward_router_address is not None
-            else {}
-        )
-        if self.is_async_reward_score:
-            result = await self.compute_score(
-                data_source=data_source,
-                solution_str=response_str,
-                ground_truth=ground_truth,
-                extra_info=extra_info,
-                **extra_reward_kwargs,
-            )
-        else:
-            result = await self.loop.run_in_executor(
-                None,
-                lambda: self.compute_score(
-                    data_source=data_source,
-                    solution_str=response_str,
-                    ground_truth=ground_truth,
-                    extra_info=extra_info,
-                    **extra_reward_kwargs,
-                ),
-            )
-~~~~
-
-## vllm>=0.11.2 接口问题/
-
-1. 手动pip install model-hosting-container-standards (vllm0.11.2 以上新增)
-2. 函数位置发生变化，如下修改：
-~~~~
-# from vllm.utils import FlexibleArgumentParser, get_tcp_uri
-from vllm.utils.argparse_utils import FlexibleArgumentParser
-from vllm.utils.network_utils import get_tcp_uri
-~~~~
-
-
-##  async server nonetype has no attribute 'result' /'non_block' 问题
 
 vllm.patch
 ~~~~
@@ -159,3 +96,71 @@ index 997d095f24..5d15f16572 100644
          """Get the list of GPUs IDs
 
 ~~~~
+
+## compute_score() 接口问题
+修改 verl/experimental/reward/reward_loop/naive.py 用下面code 覆盖
+~~~~
+async def run_single(self, data: DataProto) -> dict:
+        assert len(data) == 1, "Only support single data item"
+        data_item = data[0]
+        response_ids = data_item.batch["responses"]
+        response_length = response_ids.shape[-1]
+        valid_response_length = data_item.batch["attention_mask"][-response_length:].sum()
+        valid_response_ids = response_ids[:valid_response_length]
+        data_source = data_item.non_tensor_batch["data_source"]
+        ground_truth = data_item.non_tensor_batch["reward_model"]["ground_truth"]
+        extra_info = data_item.non_tensor_batch.get("extra_info", {})
+        tool_extra_fields = data_item.non_tensor_batch.get("tool_extra_fields", None)
+        if tool_extra_fields is not None:
+            extra_info.update(tool_extra_fields.items())
+        num_turns = data_item.non_tensor_batch.get("__num_turns__", None)
+        rollout_reward_scores = data_item.non_tensor_batch.get("reward_scores", {})
+        extra_info["num_turns"] = num_turns
+        extra_info["rollout_reward_scores"] = rollout_reward_scores
+        response_str = await self.loop.run_in_executor(
+            None, lambda: self.tokenizer.decode(valid_response_ids, skip_special_tokens=True)
+        )
+        extra_reward_kwargs = (
+            {
+                "reward_router_address": self.reward_router_address,
+                "reward_model_tokenizer": self.reward_model_tokenizer,
+            }
+            if self.reward_router_address is not None
+            else {}
+        )
+        if self.is_async_reward_score:
+            result = await self.compute_score(
+                data_source=data_source,
+                solution_str=response_str,
+                ground_truth=ground_truth,
+                extra_info=extra_info,
+                **extra_reward_kwargs,
+            )
+        else:
+            result = await self.loop.run_in_executor(
+                None,
+                lambda: self.compute_score(
+                    data_source=data_source,
+                    solution_str=response_str,
+                    ground_truth=ground_truth,
+                    extra_info=extra_info,
+                    **extra_reward_kwargs,
+                ),
+            )
+~~~~
+
+## vllm>=0.11.2 接口问题/
+
+1. 手动pip install model-hosting-container-standards (vllm0.11.2 以上新增)
+2. 函数位置发生变化，如下修改：
+~~~~
+# from vllm.utils import FlexibleArgumentParser, get_tcp_uri
+from vllm.utils.argparse_utils import FlexibleArgumentParser
+from vllm.utils.network_utils import get_tcp_uri
+~~~~
+
+
+##  async server nonetype has no attribute 'result' /'non_block' 问题
+
+通过 https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427 可以解决collective_rpc重载non_block问题
+
