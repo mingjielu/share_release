@@ -79,3 +79,83 @@ from vllm.utils.network_utils import get_tcp_uri
 
 
 ##  async server nonetype has no attribute 'result' /'non_block' 问题
+
+vllm.patch
+~~~~
+diff --git a/vllm/platforms/rocm.py b/vllm/platforms/rocm.py
+index c96df8d65..90d5d41b9 100644
+--- a/vllm/platforms/rocm.py
++++ b/vllm/platforms/rocm.py
+@@ -360,8 +360,9 @@ class RocmPlatform(Platform):
+     @classmethod
+     @lru_cache(maxsize=8)
+     def get_device_capability(cls, device_id: int = 0) -> Optional[DeviceCapability]:
+-        major, minor = torch.cuda.get_device_capability(device_id)
+-        return DeviceCapability(major=major, minor=minor)
++        #major, minor = torch.cuda.get_device_capability(device_id)
++        #return DeviceCapability(major=major, minor=minor)
++        return DeviceCapability(major=9, minor=4)
+ 
+     @classmethod
+     @with_amdsmi_context
+@@ -485,7 +486,8 @@ class RocmPlatform(Platform):
+     @cache
+     def is_fp8_fnuz(cls) -> bool:
+         # only device 0 is checked, this assumes MI300 platforms are homogeneous
+-        return "gfx94" in torch.cuda.get_device_properties(0).gcnArchName
++        return True
++        #return "gfx94" in torch.cuda.get_device_properties(0).gcnArchName
+ 
+     @classmethod
+     def fp8_dtype(cls) -> torch.dtype:
+@@ -499,9 +501,10 @@ class RocmPlatform(Platform):
+     @classmethod
+     def use_custom_allreduce(cls) -> bool:
+         # We only enable custom allreduce for MI300 series
+-        gcn_arch = torch.cuda.get_device_properties(0).gcnArchName
+-        supported_archs = ["gfx94", "gfx95"]
+-        return any(gfx in gcn_arch for gfx in supported_archs)
++        #gcn_arch = torch.cuda.get_device_properties(0).gcnArchName
++        #supported_archs = ["gfx94", "gfx95"]
++        #return any(gfx in gcn_arch for gfx in supported_archs)
++        return "gfx94"
+ 
+     @classmethod
+     def opaque_attention_op(cls) -> bool:
+
+~~~~
+
+ray.patch
+~~~~
+diff --git a/python/ray/_private/accelerators/amd_gpu.py b/python/ray/_private/accelerators/amd_gpu.py
+index 997d095f24..5d15f16572 100644
+--- a/python/ray/_private/accelerators/amd_gpu.py
++++ b/python/ray/_private/accelerators/amd_gpu.py
+@@ -48,14 +48,6 @@ class AMDGPUAcceleratorManager(AcceleratorManager):
+             )
+ 
+         env_var = HIP_VISIBLE_DEVICES_ENV_VAR
+-        if (cuda_val := os.environ.get(CUDA_VISIBLE_DEVICES_ENV_VAR, None)) is not None:
+-            if (hip_val := os.environ.get(HIP_VISIBLE_DEVICES_ENV_VAR, None)) is None:
+-                env_var = CUDA_VISIBLE_DEVICES_ENV_VAR
+-            elif hip_val != cuda_val:
+-                raise ValueError(
+-                    f"Inconsistent values found. Please use either {HIP_VISIBLE_DEVICES_ENV_VAR} or {CUDA_VISIBLE_DEVICES_ENV_VAR}."
+-                )
+-
+         return env_var
+ 
+     @staticmethod
+@@ -131,6 +123,10 @@ class AMDGPUAcceleratorManager(AcceleratorManager):
+             AMDGPUAcceleratorManager.get_visible_accelerator_ids_env_var()
+         ] = ",".join([str(i) for i in visible_amd_devices])
+ 
++        os.environ[
++            CUDA_VISIBLE_DEVICES_ENV_VAR
++        ] = ",".join([str(i) for i in visible_amd_devices])
++
+     @staticmethod
+     def _get_amd_device_ids() -> List[str]:
+         """Get the list of GPUs IDs
+
+~~~~
