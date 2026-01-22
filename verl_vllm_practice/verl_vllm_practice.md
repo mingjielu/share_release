@@ -2,7 +2,7 @@
 ## verl/vllm 版本问题汇总
 | verl/vllm | 0.10.2 | 0.11.0（精度有问题） | 0.11.2（async server 问题，已解决） |
 |---|---|---|---|
-| 0.5.0 <br> 必碰到init device问题（已解决）  | retool: 【error】 executing method 'init device'  <br> * init device 问题可以通过两个patch来来解决，详见下方| * retool: 【error】ModuleNotFoundError: No module named 'vllm.model_executor.sampling_metadata' 修复后同样 'init device' error <br> * init device 问题可以通过两个patch来来解决，详见下方| -  |
+| 0.5.0 <br> 必碰到init device问题（已解决）  | retool: 【error】 executing method 'init device'  <br> * init device 问题可以通过两个patch来来解决，详见下方| * retool: 【error】ModuleNotFoundError: No module named 'vllm.model_executor.sampling_metadata' <br> * 修复后同样 'init device' error <br> * init device 问题可以通过两个patch来来解决，详见下方| -  |
 |0.5.0-484-g2c062202（镜像默认） <br> retool 接口有问题，修复后没问题   | retool: compute_score() got an unexpected keyword argument 'reward_router_address'<br> <已解决>   | retool: compute_score() got an unexpected keyword argument 'reward_router_address'<br> <已解决>   |  retool 【直接运行会碰到model-hosting-container-standards  from vllm.utils import FlexibleArgumentParser, get_tcp_uri， init_app take 3 position问题，修复后，同样 async server error<br>https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427  <已解决>  |
 | 0.6.0  | verl retool: 【error】ExternalZeroMQDistributedExecutor.collective_rpc() got an unexpected keyword argument 'non_block' <已解决>  |   |   |
 | 0.7.0  | retool: TypeError: cannot pickle '_contextvars.ContextVar' object <br> <未解决>   |  retool: TypeError: cannot pickle '_contextvars.ContextVar' object <br> <未解决> |   |
@@ -11,8 +11,9 @@
 
 ## init device 问题
 
+![bug_init_device](init_device.png)
 
-1. 修改ray和vllm,见下面code  
+1. 修改ray和vllm,见下面code ，可以去掉RAY_EXPERIMENTAL_NOSET_HIP_VISIBLE_DEVICES=1 环境变量
 2.  在verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py +476禁用monkey patch可以解决compute_logits问题。 
 3. 通过 https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427 可以解决collective_rpc重载non_block问题
 
@@ -149,6 +150,20 @@ async def run_single(self, data: DataProto) -> dict:
             )
 ~~~~
 
+## vllm>=0.10.0 接口问题/
+ModuleNotFoundError: No module named 'vllm.model_executor.sampling_metadata'
+
+~~~~
+1.  -- verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py L52
+# from vllm.worker.worker_base import WorkerWrapperBase
+from vllm.v1.worker.worker_base import WorkerWrapperBase
+
+2.  -- verl/workers/rollout/vllm_rollout/vllm_rollout_spmd.py
+#from vllm.model_executor.sampling_metadata import SamplingMetadata 
+from vllm.v1.sample.metadata import SamplingMetadata
+~~~~
+
+
 ## vllm>=0.11.2 接口问题/
 
 1. 手动pip install model-hosting-container-standards (vllm0.11.2 以上新增)
@@ -158,9 +173,14 @@ async def run_single(self, data: DataProto) -> dict:
 from vllm.utils.argparse_utils import FlexibleArgumentParser
 from vllm.utils.network_utils import get_tcp_uri
 ~~~~
-
+3. 删掉 vllm_config
+   
+![3pos_4given](3pos_4given.png)
 
 ##  async server nonetype has no attribute 'result' /'non_block' 问题
+
+![nonetype_result](nonetype_result.png)
+
 
 通过 https://github.com/volcengine/verl/issues/4308#issuecomment-3594293427 可以解决collective_rpc重载non_block问题
 
