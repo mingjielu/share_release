@@ -1,0 +1,784 @@
+
+(WorkerDict pid=13791) Qwen2ForCausalLM contains 7.62B parameters
+(WorkerDict pid=13791) wrap_policy: functools.partial(<function _or_policy at 0x7fff9d3abce0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7fff9d3abba0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re7
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re7
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re6
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re6
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re5
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re5
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re4
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re4
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re3
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re3
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re2
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re2
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re1
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re1
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0
+(WorkerDict pid=13795) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0
+Loading checkpoint shards: 100%|██████████| 4/4 [00:17<00:00,  4.39s/it] [repeated 7x across cluster]
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 1 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 1 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 4 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 6 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 7 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 5 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 3 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 4 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 7 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13792:14866 [1] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from
+(WorkerDict pid=13793) Monkey patch _flash_attention_forward in transformers.integrations.flash_attention [repeated 7x across cluster]
+(WorkerDict pid=13793) Skipping monkey patch for Qwen2ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch [repeated 7x across cluster]
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13791) RCCL version : 2.26.6-HEAD:64f48b6
+(WorkerDict pid=13791) HIP version  : 7.0.51831-7c9236b16
+(WorkerDict pid=13791) ROCm version : 7.0.2.0-56-9428210
+(WorkerDict pid=13791) Hostname     : mi308-ccs-aus-e07-03.prov.aus.ccs.cpe.ice.amd.com
+(WorkerDict pid=13791) Librccl path : /opt/rocm/lib/librccl.so.1
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13791
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13791) Total steps: 1119810, num_warmup_steps: 0
+(WorkerDict pid=13792) /workspace/adhoc/verl_v0.7.0/verl/utils/profiler/config.py:52: UserWarning: Torch profiler tool config is not fully supported now.
+(WorkerDict pid=13792)   warnings.warn("Torch profiler tool config is not fully supported now.", stacklevel=1)
+(WorkerDict pid=13791) libibverbs: Warning: Driver bnxt_re does not support the kernel ABI of 8 (supports 1 to 1) for device /sys/class/infiniband/bnxt_re0 [repeated 112x across cluster]
+(WorkerDict pid=13791) Actor use_remove_padding=True
+(WorkerDict pid=13791) Actor use_fused_kernels=False
+(WorkerDict pid=13797) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13797:14860 [6] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net. [repeated 98x across cluster]
+(WorkerDict pid=13797) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13797:14860 [6] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from  [repeated 6x across cluster]
+(WorkerDict pid=13792) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing
+(WorkerDict pid=13792)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1)
+(WorkerDict pid=13792) gpu 1 to net.
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792)
+(WorkerDict pid=13792) [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13793)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13796)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13798)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13794)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13797)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13791)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795)
+(WorkerDict pid=13795) /usr/local/lib/python3.12/dist-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+(WorkerDict pid=13795)   warnings.warn(
+(TaskRunner pid=12091) WARNING 01-27 07:20:26 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(WorkerDict pid=13795) [2026-01-27 07:20:13] mi308-ccs-aus-e07-03:13795:14861 [4] /longer_pathname_so_that_rpms_can_support_packaging_the_debug_info_for_all_os_profiles/src/out/ubuntu-22.04/22.04/build/rccl/hipify/src/graph/topo.cc:1550 NCCL WARN Could not find any local path from gpu 2 to net. [repeated 105x across cluster]
+(WorkerDict pid=13795) gpu 1 to net. [repeated 6x across cluster]
+(WorkerDict pid=13797) [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0 [repeated 23x across cluster]
+(TaskRunner pid=12091) /workspace/adhoc/verl_v0.7.0/verl/utils/profiler/config.py:52: UserWarning: Torch profiler tool config is not fully supported now. [repeated 8x across cluster]
+(TaskRunner pid=12091)   warnings.warn("Torch profiler tool config is not fully supported now.", stacklevel=1) [repeated 8x across cluster]
+(WorkerDict pid=13791) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing [repeated 7x across cluster]
+(WorkerDict pid=13791)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1) [repeated 7x across cluster]
+(pid=15653) WARNING 01-27 07:20:35 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(pid=15652) WARNING 01-27 07:20:35 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(vLLMHttpServer pid=15653) ['serve',
+(vLLMHttpServer pid=15653)  '/apps/mingjiel/Qwen/Qwen2.5-7B-Instruct',
+(vLLMHttpServer pid=15653)  '--dtype',
+(vLLMHttpServer pid=15653)  'bfloat16',
+(vLLMHttpServer pid=15653)  '--load_format',
+(vLLMHttpServer pid=15653)  'dummy',
+(vLLMHttpServer pid=15653)  '--max_model_len',
+(vLLMHttpServer pid=15653)  '32768',
+(vLLMHttpServer pid=15653)  '--max_num_seqs',
+(vLLMHttpServer pid=15653)  '1024',
+(vLLMHttpServer pid=15653)  '--enable_chunked_prefill',
+(vLLMHttpServer pid=15653)  '--max_num_batched_tokens',
+(vLLMHttpServer pid=15653)  '8192',
+(vLLMHttpServer pid=15653)  '--enable_prefix_caching',
+(vLLMHttpServer pid=15653)  '--enable_sleep_mode',
+(vLLMHttpServer pid=15653)  '--logprobs_mode',
+(vLLMHttpServer pid=15653)  'processed_logprobs',
+(vLLMHttpServer pid=15653)  '--disable_custom_all_reduce',
+(vLLMHttpServer pid=15653)  '--gpu_memory_utilization',
+(vLLMHttpServer pid=15653)  '0.5',
+(vLLMHttpServer pid=15653)  '--disable_log_stats',
+(vLLMHttpServer pid=15653)  '--tensor_parallel_size',
+(vLLMHttpServer pid=15653)  '4',
+(vLLMHttpServer pid=15653)  '--seed',
+(vLLMHttpServer pid=15653)  '0',
+(vLLMHttpServer pid=15653)  '--override_generation_config',
+(vLLMHttpServer pid=15653)  '{"temperature": 1.0, "top_k": -1, "top_p": 1, "repetition_penalty": 1.0, '
+(vLLMHttpServer pid=15653)  '"max_new_tokens": 2048}',
+(vLLMHttpServer pid=15653)  '--hf_overrides',
+(vLLMHttpServer pid=15653)  '{}']
+(vLLMHttpServer pid=15653) INFO:2026-01-27 07:20:36,050:vLLMHttpServer, replica_rank: 0, master address: 10.235.192.105, master port: 38625, data parallel master port: 42359
+(vLLMHttpServer pid=15653) INFO:2026-01-27 07:20:36,057:override_generation_config: {'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'repetition_penalty': 1.0, 'max_new_tokens': 2048}
+(vLLMHttpServer pid=15653) INFO:2026-01-27 07:20:36,058:enable_sleep_mode: True
+(vLLMHttpServer pid=15653) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(vLLMHttpServer pid=15653) INFO:2026-01-27 07:20:36,077:replica_rank=0, node_rank=0, nnodes=1, get worker zmq addresses: ['ipc:///tmp/verl_vllm_zmq_13791_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13792_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13793_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13794_root.ipc']
+(vLLMHttpServer pid=15653) `torch_dtype` is deprecated! Use `dtype` instead!
+(WorkerDict pid=13797) /usr/local/lib/python3.12/dist-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html . [repeated 7x across cluster]
+(WorkerDict pid=13797)   warnings.warn( [repeated 7x across cluster]
+(vLLMHttpServer pid=15653) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing
+(vLLMHttpServer pid=15653)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1)
+(vLLMHttpServer pid=15652) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing
+(vLLMHttpServer pid=15652)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1)
+(vLLMHttpServer pid=15653) WARNING 01-27 07:20:36 [__init__.py:3175] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned; CUDA is initialized
+(vLLMHttpServer pid=15652) WARNING 01-27 07:20:43 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(vLLMHttpServer pid=15652) WARNING 01-27 07:20:36 [__init__.py:3175] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned; CUDA is initialized
+(vLLMHttpServer pid=15653) WARNING 01-27 07:20:43 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(WorkerDict pid=13792) [Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+(WorkerDict pid=13792) [Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+(WorkerDict pid=13795) RCCL version : 2.26.6-HEAD:64f48b6
+(WorkerDict pid=13795) HIP version  : 7.0.51831-7c9236b16
+(WorkerDict pid=13795) ROCm version : 7.0.2.0-56-9428210
+(WorkerDict pid=13795) Hostname     : mi308-ccs-aus-e07-03.prov.aus.ccs.cpe.ice.amd.com
+(WorkerDict pid=13795) Librccl path : /opt/rocm/lib/librccl.so.1
+(WorkerDict pid=13791) WARNING 01-27 07:20:45 [rocm.py:440] Model architecture 'Qwen2ForCausalLM' is partially supported by ROCm: Sliding window attention (SWA) is not yet supported in Triton flash attention. For half-precision SWA support, please use CK flash attention by setting `VLLM_USE_TRITON_FLASH_ATTN=0`
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]
+(vLLMHttpServer pid=15652) INFO:2026-01-27 07:20:36,107:vLLMHttpServer, replica_rank: 1, master address: 10.235.192.105, master port: 33417, data parallel master port: 37791
+(vLLMHttpServer pid=15652) INFO:2026-01-27 07:20:36,113:override_generation_config: {'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'repetition_penalty': 1.0, 'max_new_tokens': 2048}
+(vLLMHttpServer pid=15652) INFO:2026-01-27 07:20:36,113:enable_sleep_mode: True
+(vLLMHttpServer pid=15652) Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+(vLLMHttpServer pid=15652) INFO:2026-01-27 07:20:36,132:replica_rank=1, node_rank=0, nnodes=1, get worker zmq addresses: ['ipc:///tmp/verl_vllm_zmq_13795_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13796_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13797_root.ipc', 'ipc:///tmp/verl_vllm_zmq_13798_root.ipc']
+(vLLMHttpServer pid=15652) `torch_dtype` is deprecated! Use `dtype` instead!
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:06, 10.30it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:06, 10.43it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:05, 10.46it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:05, 10.45it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:00<00:05, 10.49it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:01<00:05, 10.50it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:01<00:05, 10.57it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:01<00:04, 10.57it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:01<00:04, 10.65it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:01<00:04, 10.69it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:02<00:04, 10.70it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:02<00:03, 10.76it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:02<00:03, 10.77it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:02<00:03, 10.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:02<00:04,  9.11it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:03<00:03,  9.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:03<00:03,  9.92it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:03<00:03, 10.23it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:03<00:02, 10.50it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:03<00:02, 10.69it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:04<00:02, 10.78it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:04<00:02, 10.90it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:04<00:01, 10.95it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:04<00:01, 10.98it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:04<00:01, 11.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:04<00:01, 11.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:05<00:01, 11.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:05<00:00, 11.05it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:05<00:00, 11.11it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:05<00:00, 11.15it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:05<00:00, 11.15it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:06<00:00, 11.22it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:06<00:00, 11.16it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:06<00:00, 10.60it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):   1%|▏         | 1/67 [00:00<00:56,  1.16it/s]
+Capturing CUDA graphs (decode, FULL):   3%|▎         | 2/67 [00:01<00:40,  1.61it/s]
+Capturing CUDA graphs (decode, FULL):   4%|▍         | 3/67 [00:01<00:24,  2.58it/s]
+Capturing CUDA graphs (decode, FULL):   6%|▌         | 4/67 [00:01<00:17,  3.60it/s]
+Capturing CUDA graphs (decode, FULL):   7%|▋         | 5/67 [00:01<00:13,  4.60it/s]
+Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:01<00:11,  5.54it/s]
+Capturing CUDA graphs (decode, FULL):  10%|█         | 7/67 [00:01<00:09,  6.36it/s]
+Capturing CUDA graphs (decode, FULL):  12%|█▏        | 8/67 [00:01<00:08,  7.03it/s]
+Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:02<00:07,  7.52it/s]
+Capturing CUDA graphs (decode, FULL):  15%|█▍        | 10/67 [00:02<00:07,  7.99it/s]
+Capturing CUDA graphs (decode, FULL):  16%|█▋        | 11/67 [00:02<00:06,  8.30it/s]
+Capturing CUDA graphs (decode, FULL):  18%|█▊        | 12/67 [00:02<00:06,  8.52it/s]
+Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:02<00:07,  7.62it/s]
+Capturing CUDA graphs (decode, FULL):  21%|██        | 14/67 [00:02<00:06,  8.03it/s]
+Capturing CUDA graphs (decode, FULL):  22%|██▏       | 15/67 [00:02<00:07,  6.78it/s]
+Capturing CUDA graphs (decode, FULL):  24%|██▍       | 16/67 [00:02<00:06,  7.29it/s]
+Capturing CUDA graphs (decode, FULL):  25%|██▌       | 17/67 [00:03<00:06,  7.42it/s]
+Capturing CUDA graphs (decode, FULL):  27%|██▋       | 18/67 [00:03<00:06,  7.84it/s]
+Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:03<00:05,  8.16it/s]
+Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:03<00:05,  8.41it/s]
+Capturing CUDA graphs (decode, FULL):  31%|███▏      | 21/67 [00:03<00:05,  8.56it/s]
+Capturing CUDA graphs (decode, FULL):  33%|███▎      | 22/67 [00:03<00:05,  8.68it/s]
+Capturing CUDA graphs (decode, FULL):  34%|███▍      | 23/67 [00:03<00:05,  8.73it/s]
+Capturing CUDA graphs (decode, FULL):  36%|███▌      | 24/67 [00:03<00:04,  8.80it/s]
+Capturing CUDA graphs (decode, FULL):  37%|███▋      | 25/67 [00:04<00:04,  8.84it/s]
+Capturing CUDA graphs (decode, FULL):  39%|███▉      | 26/67 [00:04<00:04,  8.89it/s]
+Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:04<00:04,  8.92it/s]
+Capturing CUDA graphs (decode, FULL):  42%|████▏     | 28/67 [00:04<00:04,  8.89it/s]
+Capturing CUDA graphs (decode, FULL):  43%|████▎     | 29/67 [00:04<00:04,  8.89it/s]
+Capturing CUDA graphs (decode, FULL):  45%|████▍     | 30/67 [00:04<00:04,  8.91it/s]
+Capturing CUDA graphs (decode, FULL):  46%|████▋     | 31/67 [00:04<00:04,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  48%|████▊     | 32/67 [00:04<00:03,  8.93it/s]
+Capturing CUDA graphs (decode, FULL):  49%|████▉     | 33/67 [00:04<00:03,  8.93it/s]
+Capturing CUDA graphs (decode, FULL):  51%|█████     | 34/67 [00:05<00:03,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  52%|█████▏    | 35/67 [00:05<00:03,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:05<00:03,  8.95it/s]
+Capturing CUDA graphs (decode, FULL):  55%|█████▌    | 37/67 [00:05<00:03,  8.92it/s]
+Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 38/67 [00:05<00:03,  8.93it/s]
+Capturing CUDA graphs (decode, FULL):  58%|█████▊    | 39/67 [00:05<00:03,  8.96it/s]
+Capturing CUDA graphs (decode, FULL):  60%|█████▉    | 40/67 [00:05<00:03,  8.96it/s]
+Capturing CUDA graphs (decode, FULL):  61%|██████    | 41/67 [00:05<00:02,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 42/67 [00:05<00:02,  8.92it/s]
+Capturing CUDA graphs (decode, FULL):  64%|██████▍   | 43/67 [00:06<00:02,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 44/67 [00:06<00:02,  8.94it/s]
+Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:06<00:02,  8.96it/s]
+Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 46/67 [00:06<00:02,  8.97it/s]
+Capturing CUDA graphs (decode, FULL):  70%|███████   | 47/67 [00:06<00:02,  8.99it/s]
+Capturing CUDA graphs (decode, FULL):  72%|███████▏  | 48/67 [00:06<00:02,  8.84it/s]
+Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 49/67 [00:06<00:02,  8.86it/s]
+Capturing CUDA graphs (decode, FULL):  75%|███████▍  | 50/67 [00:06<00:01,  8.89it/s]
+Capturing CUDA graphs (decode, FULL):  76%|███████▌  | 51/67 [00:06<00:01,  8.90it/s]
+Capturing CUDA graphs (decode, FULL):  78%|███████▊  | 52/67 [00:07<00:01,  8.89it/s]
+Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 53/67 [00:07<00:01,  8.86it/s]
+Capturing CUDA graphs (decode, FULL):  81%|████████  | 54/67 [00:07<00:01,  9.00it/s]
+Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 55/67 [00:08<00:04,  2.77it/s]
+Capturing CUDA graphs (decode, FULL):  84%|████████▎ | 56/67 [00:09<00:05,  1.94it/s]
+Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 57/67 [00:09<00:04,  2.30it/s]
+Capturing CUDA graphs (decode, FULL):  87%|████████▋ | 58/67 [00:09<00:03,  2.85it/s]
+Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 59/67 [00:09<00:02,  3.46it/s]
+Capturing CUDA graphs (decode, FULL):  90%|████████▉ | 60/67 [00:09<00:01,  4.08it/s]
+Capturing CUDA graphs (decode, FULL):  91%|█████████ | 61/67 [00:09<00:01,  4.67it/s]
+Capturing CUDA graphs (decode, FULL):  93%|█████████▎| 62/67 [00:10<00:00,  5.22it/s]
+Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 63/67 [00:10<00:00,  5.68it/s]
+Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 64/67 [00:10<00:00,  6.04it/s]
+Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 65/67 [00:10<00:00,  6.34it/s]
+Capturing CUDA graphs (decode, FULL):  99%|█████████▊| 66/67 [00:10<00:00,  6.62it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:11<00:00,  5.80it/s]
+(vLLMHttpServer pid=15652) WARNING 01-27 07:21:25 [model.py:1581] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(WorkerDict pid=13794) WARNING 01-27 07:20:43 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development! [repeated 8x across cluster]
+(WorkerDict pid=13794) [Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3 [repeated 46x across cluster]
+(WorkerDict pid=13795) WARNING 01-27 07:20:45 [rocm.py:440] Model architecture 'Qwen2ForCausalLM' is partially supported by ROCm: Sliding window attention (SWA) is not yet supported in Triton flash attention. For half-precision SWA support, please use CK flash attention by setting `VLLM_USE_TRITON_FLASH_ATTN=0` [repeated 7x across cluster]
+(vLLMHttpServer pid=15653) INFO:2026-01-27 07:21:25,218:Initializing a V1 LLM engine with config: model='/apps/mingjiel/Qwen/Qwen2.5-7B-Instruct', speculative_config=None, tokenizer='/apps/mingjiel/Qwen/Qwen2.5-7B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=dummy, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/apps/mingjiel/Qwen/Qwen2.5-7B-Instruct, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={'level': 3, 'debug_dump_path': None, 'cache_dir': '', 'backend': '', 'custom_ops': [], 'splitting_ops': ['vllm.unified_attention', 'vllm.unified_attention_with_output', 'vllm.mamba_mixer2', 'vllm.mamba_mixer', 'vllm.short_conv', 'vllm.linear_attention', 'vllm.plamo2_mamba_mixer', 'vllm.gdn_attention', 'vllm.sparse_attn_indexer'], 'use_inductor': True, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'use_cudagraph': True, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [512, 504, 496, 488, 480, 472, 464, 456, 448, 440, 432, 424, 416, 408, 400, 392, 384, 376, 368, 360, 352, 344, 336, 328, 320, 312, 304, 296, 288, 280, 272, 264, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4, 2, 1], 'cudagraph_copy_inputs': False, 'full_cuda_graph': True, 'use_inductor_graph_partition': False, 'pass_config': {}, 'max_capture_size': 512, 'local_cache_dir': None}
+(TaskRunner pid=12091) AgentLoopManager: ['10.235.192.105:46367', '10.235.192.105:39183']
+(AgentLoopWorker pid=16523) Using dataset class: CustomRLHFDataset
+(vLLMHttpServer pid=15653) WARNING 01-27 07:21:25 [model.py:1581] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(AgentLoopWorker pid=16523) WARNING 01-27 07:21:34 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(AgentLoopWorker pid=16521) WARNING 01-27 07:21:34 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+(AgentLoopWorker pid=16523) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing
+(AgentLoopWorker pid=16523)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1)
+(TaskRunner pid=12091) wandb: Tracking run with wandb version 0.22.3
+(TaskRunner pid=12091) wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+(TaskRunner pid=12091) wandb: Run data is saved locally in /workspace/adhoc/verl_v0.7.0/wandb/offline-run-20260127_072136-mkjkzv0s
+(TaskRunner pid=12091) Checkpoint tracker file does not exist: /cfs_turbo/yuleiqin/VERL-official//checkpoint/qwen2.5-7b_dapo_fix_mix308/latest_checkpointed_iteration.txt
+(TaskRunner pid=12091) Training from scratch
+(TaskRunner pid=12091) wandb: Detected [openai] in use.
+(TaskRunner pid=12091) wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+(TaskRunner pid=12091) wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+(TaskRunner pid=12091) ☠️【batch key】: []; 【non_existence_non_tensor_batch_keys】: []; 【non_existence_meta_info_keys】：[] ☠️ not in batch: _StringKeys(dict_keys(['dummy_tensor']))
+(TaskRunner pid=12091) test_gen_batch meta info: {'eos_token_id': 151645, 'pad_token_id': 151643, 'recompute_log_prob': False, 'do_sample': False, 'validate': True, 'global_steps': 0}
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16522) {
+(AgentLoopWorker pid=16522)   "type": "function",
+(AgentLoopWorker pid=16522)   "function": {
+(AgentLoopWorker pid=16522)     "name": "code_interpreter",
+(AgentLoopWorker pid=16522)     "description": "A tool for executing code.",
+(AgentLoopWorker pid=16522)     "parameters": {
+(AgentLoopWorker pid=16522)       "type": "object",
+(AgentLoopWorker pid=16522)       "properties": {
+(AgentLoopWorker pid=16522)         "code": {
+(AgentLoopWorker pid=16522)           "type": "string",
+(AgentLoopWorker pid=16522)           "description": "The code to execute."
+(AgentLoopWorker pid=16522)         }
+(AgentLoopWorker pid=16522)       },
+(AgentLoopWorker pid=16522)       "required": [
+(AgentLoopWorker pid=16522)         "code"
+(AgentLoopWorker pid=16522)       ]
+(AgentLoopWorker pid=16522)     }
+(AgentLoopWorker pid=16522)   }
+(AgentLoopWorker pid=16522) }
+(AgentLoopWorker pid=16528) Using dataset class: CustomRLHFDataset [repeated 7x across cluster]
+(AgentLoopWorker pid=16528) WARNING 01-27 07:21:34 [api_server.py:1207] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development! [repeated 6x across cluster]
+(AgentLoopWorker pid=16524)
+(AgentLoopWorker pid=16521)
+(AgentLoopWorker pid=16528)
+(AgentLoopWorker pid=16524)
+(AgentLoopWorker pid=16525)
+(vLLMHttpServer pid=15653) WARNING 01-27 07:21:50 [async_llm.py:283] Processor has been moved under OpenAIServing and will be removed from AsyncLLM in v0.13.
+(AgentLoopWorker pid=16526)
+(AgentLoopWorker pid=16521) ERROR:2026-01-27 07:22:05,398:Failed to decode tool call: Invalid control character at: line 2 column 62 (char 62)
+(AgentLoopWorker pid=16521) You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+(AgentLoopWorker pid=16528) /workspace/adhoc/verl_v0.7.0/verl/utils/tokenizer.py:107: UserWarning: Failed to create processor: Unsupported processor type: Qwen2TokenizerFast. This may affect multimodal processing [repeated 7x across cluster]
+(AgentLoopWorker pid=16528)   warnings.warn(f"Failed to create processor: {e}. This may affect multimodal processing", stacklevel=1) [repeated 7x across cluster]
+(raylet) [symbolize_elf.inc : 1012] RAW: /proc/self/task/1069/maps: errno=24
+(raylet) [2026-01-27 07:22:09,205 E 1069 1069] (raylet) logging.cc:118: Unhandled exception: N5boost10wrapexceptINS_6system12system_errorEEE. what(): epoll: Too many open files [system:24] /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xef0aca) [0x555556444aca]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xef156c) [0x55555644556c]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x214451) [0x555555768451]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae20c) [0x7ffff7a5820c]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae277) [0x7ffff7a58277]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae4d8) [0x7ffff7a584d8]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x20fed4) [0x555555763ed4]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebf80b) [0x55555641380b]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xec1082) [0x555556415082]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xec13dd) [0x5555564153dd]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x294663) [0x5555557e8663]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8561) [0x55555640c561]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8666) [0x55555640c666]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3882b4) [0x5555558dc2b4]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8561) [0x55555640c561]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x87ab1e) [0x555555dceb1e]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x372855) [0x5555558c6855]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3777f3) [0x5555558cb7f3]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x2a5a39) [0x5555557f9a39]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32accf) [0x55555587eccf]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32af4c) [0x55555587ef4c]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x335742) [0x555555889742]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4727d5) [0x5555559c67d5]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x7f1668) [0x555555d45668]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x474c48) [0x5555559c8c48]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4753d8) [0x5555559c93d8]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebc47b) [0x55555641047b]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebea09) [0x555556412a09]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebef22) [0x555556412f22]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x21a557) [0x55555576e557]
+(raylet) /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7ffff7788d90]
+(raylet) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7ffff7788e40]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x23d997) [0x555555791997]
+(raylet)
+(raylet) [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:125: Stack trace:
+(raylet)  /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xef0aca) [0x555556444aca]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xef156c) [0x55555644556c]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xef3b28) [0x555556447b28]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae20c) [0x7ffff7a5820c]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae277) [0x7ffff7a58277]
+(raylet) /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae4d8) [0x7ffff7a584d8]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x20fed4) [0x555555763ed4]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebf80b) [0x55555641380b]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xec1082) [0x555556415082]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xec13dd) [0x5555564153dd]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x294663) [0x5555557e8663]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8561) [0x55555640c561]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8666) [0x55555640c666]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3882b4) [0x5555558dc2b4]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xeb8561) [0x55555640c561]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x87ab1e) [0x555555dceb1e]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x372855) [0x5555558c6855]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3777f3) [0x5555558cb7f3]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x2a5a39) [0x5555557f9a39]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32accf) [0x55555587eccf]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32af4c) [0x55555587ef4c]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x335742) [0x555555889742]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4727d5) [0x5555559c67d5]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x7f1668) [0x555555d45668]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x474c48) [0x5555559c8c48]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4753d8) [0x5555559c93d8]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebc47b) [0x55555641047b]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebea09) [0x555556412a09]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebef22) [0x555556412f22]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x21a557) [0x55555576e557]
+(raylet) /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7ffff7788d90]
+(raylet) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7ffff7788e40]
+(raylet) /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x23d997) [0x555555791997]
+(raylet)
+(raylet) *** SIGABRT received at time=1769498529 on cpu 16 ***
+(raylet) PC: @     0x7ffff77f59fc  (unknown)  (unknown)
+(raylet)     @     0x7ffff77a1520  (unknown)  (unknown)
+(raylet) [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: *** SIGABRT received at time=1769498529 on cpu 16 ***
+(raylet) [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: PC: @     0x7ffff77f59fc  (unknown)  (unknown)
+(raylet) [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474:     @     0x7ffff77a1520  (unknown)  (unknown)
+(raylet) Raylet is terminated. Termination is unexpected. Possible reasons include: (1) SIGKILL by the user or system OOM killer, (2) Invalid memory access from Raylet causing SIGSEGV or SIGBUS, (3) Other termination signals. Last 20 lines of the Raylet logs:
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3777f3) [0x5555558cb7f3]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x2a5a39) [0x5555557f9a39]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32accf) [0x55555587eccf]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32af4c) [0x55555587ef4c]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x335742) [0x555555889742]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4727d5) [0x5555559c67d5]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x7f1668) [0x555555d45668]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x474c48) [0x5555559c8c48]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4753d8) [0x5555559c93d8]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebc47b) [0x55555641047b]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebea09) [0x555556412a09]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebef22) [0x555556412f22]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x21a557) [0x55555576e557]
+    /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7ffff7788d90]
+    /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7ffff7788e40]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x23d997) [0x555555791997]
+
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: *** SIGABRT received at time=1769498529 on cpu 16 ***
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: PC: @     0x7ffff77f59fc  (unknown)  (unknown)
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474:     @     0x7ffff77a1520  (unknown)  (unknown)
+
+(AgentLoopWorker pid=16526) { [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)   "type": "function", [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)   "function": { [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)     "name": "code_interpreter", [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)     "description": "A tool for executing code.", [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)     "parameters": { [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)       "type": "object", [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)       "properties": { [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)         "code": { [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)           "type": "string", [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)           "description": "The code to execute." [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526) } [repeated 7172x across cluster]
+(AgentLoopWorker pid=16526)       }, [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)       "required": [ [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)         "code" [repeated 1793x across cluster]
+(AgentLoopWorker pid=16526)       ] [repeated 1793x across cluster]
+(vLLMHttpServer pid=15652) WARNING 01-27 07:21:50 [async_llm.py:283] Processor has been moved under OpenAIServing and will be removed from AsyncLLM in v0.13.
+(pid=19773) [2026-01-27 07:22:09,303 E 19773 19773] core_worker_process.cc:223: Failed to register worker to Raylet: IOError: Connection reset by peer worker_id=2f36d3a2258676a073f1f51101645f6de047e18346eee9fa3989dc70
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', 'algorithm.use_kl_in_reward=False', 'algorithm.kl_ctrl.kl_coef=0.0', "data.train_files=['/apps/mingjiel/verl/datasets/BytedTsinghua-SIA/DAPO-Math-17k']", "data.val_files=['/apps/mingjiel/verl/datasets/yentinglin/aime_2025', '/apps/mingjiel/verl/datasets/Maxwell-Jia/AIME_2024']", 'data.return_raw_chat=True', 'data.train_batch_size=16', 'data.max_prompt_length=1024', 'data.max_response_length=2048', 'data.filter_overlong_prompts=True', 'data.truncation=error', 'data.custom_cls.path=verl_recipe/retool/retool.py', 'data.custom_cls.name=CustomRLHFDataset', 'custom_reward_function.path=verl_recipe/retool/retool.py', 'custom_reward_function.name=compute_score', 'actor_rollout_ref.model.path=/apps/mingjiel/Qwen/Qwen2.5-7B-Instruct', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.use_kl_loss=False', 'actor_rollout_ref.actor.kl_loss_coef=0.0', 'actor_rollout_ref.actor.clip_ratio_low=0.2', 'actor_rollout_ref.actor.clip_ratio_high=0.28', 'actor_rollout_ref.actor.clip_ratio_c=10.0', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.actor.use_dynamic_bsz=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=16', 'actor_rollout_ref.actor.ppo_max_token_len_per_gpu=3072', 'actor_rollout_ref.actor.ulysses_sequence_parallel_size=4', 'actor_rollout_ref.actor.fsdp_config.param_offload=True', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=True', 'actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=12288', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.mode=async', 'actor_rollout_ref.rollout.tensor_model_parallel_size=4', 'actor_rollout_ref.rollout.multi_turn.enable=True', 'actor_rollout_ref.rollout.multi_turn.max_user_turns=16', 'actor_rollout_ref.rollout.multi_turn.max_assistant_turns=16', 'actor_rollout_ref.rollout.multi_turn.tool_config_path=verl_recipe/retool/sandbox_fusion_tool_config.yaml', 'actor_rollout_ref.rollout.multi_turn.format=hermes', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.5', 'actor_rollout_ref.rollout.n=16', 'actor_rollout_ref.rollout.val_kwargs.top_p=0.6', 'actor_rollout_ref.rollout.val_kwargs.temperature=1.0', 'actor_rollout_ref.rollout.val_kwargs.n=30', 'trainer.logger=[console,wandb]', 'trainer.project_name=retool_verl_mix308', 'trainer.experiment_name=qwen2.5-7b_dapo_fix_mix308', 'trainer.n_gpus_per_node=8', 'trainer.val_before_train=True', 'trainer.log_val_generations=20', 'trainer.nnodes=1', 'trainer.save_freq=10', 'trainer.default_local_dir=/cfs_turbo/yuleiqin/VERL-official//checkpoint/qwen2.5-7b_dapo_fix_mix308', 'trainer.rollout_data_dir=/cfs_turbo/yuleiqin/VERL-official//checkpoint/qwen2.5-7b_dapo_fix_mix308/rollout', 'trainer.validation_data_dir=/cfs_turbo/yuleiqin/VERL-official//checkpoint/qwen2.5-7b_dapo_fix_mix308/validation', 'trainer.test_freq=10', 'trainer.total_epochs=10']
+Traceback (most recent call last):
+  File "/workspace/adhoc/verl_v0.7.0/verl/trainer/main_ppo.py", line 45, in main
+    run_ppo(config)
+  File "/workspace/adhoc/verl_v0.7.0/verl/trainer/main_ppo.py", line 99, in run_ppo
+    ray.get(runner.run.remote(config))
+  File "/usr/local/lib/python3.12/dist-packages/ray/_private/auto_init_hook.py", line 22, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/ray/_private/client_mode_hook.py", line 104, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/ray/_private/worker.py", line 2961, in get
+    values, debugger_breakpoint = worker.get_objects(
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/ray/_private/worker.py", line 1028, in get_objects
+    raise value
+ray.exceptions.ActorUnavailableError: The actor 3f8073128d811c45c7f7e9ce01000000 is unavailable: The actor is temporarily unavailable: RpcError: RPC Error message: Socket closed; RPC Error details:  rpc_code: 14. The task may or may not have been executed on the actor.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+(raylet) Raylet is terminated. Termination is unexpected. Possible reasons include: (1) SIGKILL by the user or system OOM killer, (2) Invalid memory access from Raylet causing SIGSEGV or SIGBUS, (3) Other termination signals. Last 20 lines of the Raylet logs:
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x3777f3) [0x5555558cb7f3]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x2a5a39) [0x5555557f9a39]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32accf) [0x55555587eccf]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x32af4c) [0x55555587ef4c]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x335742) [0x555555889742]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4727d5) [0x5555559c67d5]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x7f1668) [0x555555d45668]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x474c48) [0x5555559c8c48]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x4753d8) [0x5555559c93d8]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebc47b) [0x55555641047b]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebea09) [0x555556412a09]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0xebef22) [0x555556412f22]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x21a557) [0x55555576e557]
+    /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7ffff7788d90]
+    /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7ffff7788e40]
+    /usr/local/lib/python3.12/dist-packages/ray/core/src/ray/raylet/raylet(+0x23d997) [0x555555791997]
+
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: *** SIGABRT received at time=1769498529 on cpu 16 ***
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474: PC: @     0x7ffff77f59fc  (unknown)  (unknown)
+    [2026-01-27 07:22:09,206 E 1069 1069] (raylet) logging.cc:474:     @     0x7ffff77a1520  (unknown)  (unknown)
+
+(AgentLoopWorker pid=16522) ERROR:2026-01-27 07:22:09,505:Failed to decode tool call: Invalid control character at: line 2 column 62 (char 62) [repeated 15x across cluster]
+(AgentLoopWorker pid=16522) You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding. [repeated 2x across cluster]
+(pid=32479) [2026-01-27 07:22:09,357 E 32479 32479] core_worker_process.cc:223: Failed to register worker to Raylet: IOError: Connection reset by peer worker_id=8f2be879f720ca69f21ff80d4e81146f19796121304dae6232dacb1b [repeated 118x across cluster]
+➜  /workspace/adhoc/verl_v0.7.0
