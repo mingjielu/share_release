@@ -8,8 +8,7 @@ Author: `Mingjie Lu <https://github.com/mingjielu>`_, `Xiaohong Kou <https://git
 Setup
 -----
 
-If you run on AMD GPUs (MI300) with ROCM platform, you cannot use the previous quickstart to run verl. You should follow the following steps to build a docker  ``RAY_EXPERIMENTAL_NOSET_ROCR_VISIBLE_DEVICES`` and ``RAY_EXPERIMENTAL_NOSET_HIP_VISIBLE_DEVICES``  are no longer needed in the new version.
-
+If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:v2_0325 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
 
 docker/Dockerfile.rocm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,8 +56,8 @@ docker/Dockerfile.rocm
     #
     FROM base AS rocm_deb
 
-    ARG ROCM_VERSION=7.2
-    ARG AMDGPU_VERSION=30.30
+    ARG ROCM_VERSION=7.0.2
+    ARG AMDGPU_VERSION=7.0.2
 
     RUN curl -sL https://repo.radeon.com/rocm/rocm.gpg.key | apt-key add - \
         && printf "deb [arch=amd64] https://repo.radeon.com/rocm/apt/$ROCM_VERSION/ jammy main\n" | tee /etc/apt/sources.list.d/rocm.list \
@@ -90,11 +89,11 @@ docker/Dockerfile.rocm
 
     RUN --mount=type=cache,target=/root/.cache/pip \
         cd /tmp && \
-        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/torch-2.10.0+rocm7.2.0.lw.gitb6ee5fde-cp312-cp312-linux_x86_64.whl -O torch-2.10.0+rocm7.2.0.lw.gitb6ee5fde-cp312-cp312-linux_x86_64.whl && \
-        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/apex-1.10.0+rocm7.2.0.gitef17b699-cp312-cp312-linux_x86_64.whl -O apex-1.10.0+rocm7.2.0.gitef17b699-cp312-cp312-linux_x86_64.whl && \
-        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/torchaudio-2.10.0+rocm7.2.0.git5047768f-cp312-cp312-linux_x86_64.whl -O torchaudio-2.10.0+rocm7.2.0.git5047768f-cp312-cp312-linux_x86_64.whl && \
-        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/torchvision-0.25.0+rocm7.2.0.git82df5f59-cp312-cp312-linux_x86_64.whl -O torchvision-0.25.0+rocm7.2.0.git82df5f59-cp312-cp312-linux_x86_64.whl && \
-        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/triton-3.6.0+rocm7.2.0.gitba5c1517-cp312-cp312-linux_x86_64.whl -O triton-3.6.0+rocm7.2.0.gitba5c1517-cp312-cp312-linux_x86_64.whl && \
+        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0.2/torch-2.9.1.dev20251204+rocm7.0.2.lw.git351ff442-cp312-cp312-linux_x86_64.whl -O torch-2.9.1.dev20251204+rocm7.0.2.lw.git351ff442-cp312-cp312-linux_x86_64.whl && \
+        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0.2/apex-1.9.0a0+rocm7.0.2.git07c3ee53-cp312-cp312-linux_x86_64.whl -O apex-1.9.0a0+rocm7.0.2.git07c3ee53-cp312-cp312-linux_x86_64.whl && \
+        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0.2/torchaudio-2.9.0+rocm7.0.2.gite3c6ee2b-cp312-cp312-linux_x86_64.whl -O torchaudio-2.9.0+rocm7.0.2.gite3c6ee2b-cp312-cp312-linux_x86_64.whl && \
+        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0.2/torchvision-0.24.0+rocm7.0.2.gitb919bd0c-cp312-cp312-linux_x86_64.whl -O torchvision-0.24.0+rocm7.0.2.gitb919bd0c-cp312-cp312-linux_x86_64.whl && \
+        wget -nv https://repo.radeon.com/rocm/manylinux/rocm-rel-7.0.2/triton-3.5.1+rocm7.0.2.gita272dfa8-cp312-cp312-linux_x86_64.whl -O triton-3.5.1+rocm7.0.2.gita272dfa8-cp312-cp312-linux_x86_64.whl && \
         pip3 install *.whl && \
         rm -f *.whl
 
@@ -113,7 +112,7 @@ docker/Dockerfile.rocm
     FROM new_toolset AS fa_build
 
     ARG FA_REPO="https://github.com/ROCm/flash-attention"
-    ARG FA_TAG="9a25eba569317708ae295e396aaac0050b28e52b"
+    ARG FA_TAG="8afc617aa7ebb72f70f659b03b9908c30920ad37"
 
     RUN git clone ${FA_REPO} \
     && cd flash-attention \
@@ -147,9 +146,8 @@ docker/Dockerfile.rocm
     ENV NVTE_CK_USES_BWD_V3=1
     ENV NVTE_CK_V3_BF16_CVT=2
 
-    ARG TE_TAG="15cf65a70f19d71920f3a4647826b4ac92d0fd47"
-    RUN pip install pybind11 && \
-        git clone https://github.com/ROCm/TransformerEngine.git && \
+    ARG TE_TAG="307b5e86bb5960e347f1f70224d17e09e73f5338"
+    RUN pip install pybind11 && git clone https://github.com/ROCm/TransformerEngine.git && \
         cd TransformerEngine && git checkout $(TE_TAG) && git submodule update --init --recursive && \
         GPU_ARCHS=gfx942 MAX_JOBS=$(nproc) python3 setup.py install && \
         cd .. && rm -rf TransformerEngine
@@ -162,25 +160,19 @@ docker/Dockerfile.rocm
     RUN pip install setuptools_scm && \
         mkdir /workspace && cd /workspace && \
         ln -sf /opt/rocm/lib/libamdhip64.so /usr/lib/libamdhip64.so && \
-        git clone https://github.com/vllm-project/vllm  && \
+        git clone https://github.com/vllm-project/vllm && \
         cd vllm && pip install -r requirements/rocm.txt && \
         MAX_JOBS=32 python3 setup.py develop --no-deps
 
     FROM install_vllm AS install_verl
-
-    ENV CUPY_INSTALL_USE_HIP=1
-    ENV ROCM_HOME=/opt/rocm
-    ENV HCC_AMDGPU_TARGET=gfx942
-    ARG CUPY_TAG="6c4b343ea1960cff41775e03028b99dfa33e2062"
-    RUN cd /workspace && git clone https://github.com/ROCm/cupy.git  --recursive && \
-        pip install Cython && \
-        cd cupy && git checkout $(CUPY_TAG) && MAX_JOBS=64 python3 setup.py install
+    RUN pip install cupy-rocm-7-0
     RUN cd /workspace && git clone https://github.com/volcengine/verl.git && \
         cd verl && pip install -e .
-    RUN pip uninstall cupy-cuda12x -y && rm -rf /workspace/cupy
+
 
     ENV MIOPEN_DEBUG_CONV_DIRECT=0
     RUN apt install vim -y
+    RUN cd /workspace && git clone --recursive https://github.com/ROCm/aiter.git && cd aiter && python3 setup.py develop
 
 Build the image:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,6 +182,44 @@ Build the image:
     docker docker/build -t verl-rocm .
 
 
+Docker run:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. code-block:: bash
 
+    NAME=verl_release
+    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:v2_0325
+    docker run -it --name $NAME --device /dev/kfd --device /dev/dri \
+        --privileged --network=host \
+        --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
+        --shm-size=2048g \
+        --ulimit memlock=-1 --ulimit stack=67108864 \
+        -w /workspace \
+        $DOCKER \
+        /bin/bash
 
+GRPO && DAPO:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Qwen3.5 is supported in the this version.
+
+.. code-block:: bash
+
+    # prepare the data and model for training
+    # prepare the environment
+    pip install -U git+https://github.com/ISEEKYAN/mbridge.git
+    pip install transformers --upgrade
+    pip install megatron-core --upgrade
+    pip install mathruler
+    pip install qwen_vl_utils
+    pip install flash-linear-attention
+    # run the training
+    bash examples/grpo_trainer/run_qwen3_5-35b-megatron.sh
+
+Fully Async Policy:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``RAY_EXPERIMENTAL_NOSET_ROCR_VISIBLE_DEVICES`` and ``RAY_EXPERIMENTAL_NOSET_HIP_VISIBLE_DEVICES``  are no longer needed in the new version.
+.. code-block:: bash
+
+    # prepare the data and model for training
+    bash verl/experimental/fully_async_policy/shell/dapo_7b_math_fsdp2_4_4.sh
