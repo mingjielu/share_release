@@ -219,7 +219,11 @@ Qwen3.5 is supported in the this version.
 Fully Async Policy:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ``RAY_EXPERIMENTAL_NOSET_ROCR_VISIBLE_DEVICES`` and ``RAY_EXPERIMENTAL_NOSET_HIP_VISIBLE_DEVICES``  are no longer needed in the new version.
+
 .. code-block:: bash
 
     # prepare the data and model for training
     bash verl/experimental/fully_async_policy/shell/dapo_7b_math_fsdp2_4_4.sh
+
+vllm patch TBD
+
