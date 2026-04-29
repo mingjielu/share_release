@@ -189,7 +189,7 @@ Docker run:
 .. code-block:: bash
 
     NAME=verl_release
-    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:v2_0325
+    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:v3_0427
     docker run -it --name $NAME --device /dev/kfd --device /dev/dri \
         --privileged --network=host \
         --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
