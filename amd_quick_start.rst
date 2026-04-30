@@ -156,12 +156,13 @@ docker/Dockerfile.rocm
     #
     FROM te AS install_vllm
 
+    # waiting for upstream vllm update the patch
     ENV PYTORCH_ROCM_ARCH="gfx942"
-    ARG VLLM_TAG="71161e8b6"
+    ARG VLLM_TAG="71161e8b6_patch"
     RUN pip install setuptools_scm && \
         mkdir /workspace && cd /workspace && \
         ln -sf /opt/rocm/lib/libamdhip64.so /usr/lib/libamdhip64.so && \
-        git clone https://github.com/vllm-project/vllm && \
+        git clone https://github.com/mingjielu/vllm && \
         cd vllm && git checkout $(VLLM_TAG) && pip install -r requirements/rocm.txt && \
         MAX_JOBS=32 python3 setup.py develop --no-deps
 
@@ -199,8 +200,9 @@ Docker run:
         $DOCKER \
         /bin/bash
 
-GRPO && DAPO:
+GRPO:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Qwen3.5 is supported in the this version.
 
@@ -224,7 +226,8 @@ Fully Async Policy:
 .. code-block:: bash
 
     # prepare the data and model for training
+    # for qwen2.5 math 7b # very important! please modify the max_position_embeddings in config.json to 32768 after downloading from huggingface
     bash verl/experimental/fully_async_policy/shell/dapo_7b_math_fsdp2_4_4.sh
 
-vllm patch TBD
+
 
