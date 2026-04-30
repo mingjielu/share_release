@@ -8,7 +8,7 @@ Author: `Mingjie Lu <https://github.com/mingjielu>`_, `Xiaohong Kou <https://git
 Setup
 -----
 
-If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:v3_0427 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
+If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:v4_0430 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
 
 docker/Dockerfile.rocm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
