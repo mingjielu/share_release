@@ -8,7 +8,7 @@ Author: `Mingjie Lu <https://github.com/mingjielu>`_, `Xiaohong Kou <https://git
 Setup
 -----
 
-If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:v4_0430 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
+If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:verl_gfx942_950 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
 
 docker/Dockerfile.rocm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,11 +147,14 @@ docker/Dockerfile.rocm
     ENV NVTE_CK_USES_BWD_V3=1
     ENV NVTE_CK_V3_BF16_CVT=2
     
-    ARG TE_TAG="dfb53ae26af387582d2f15d1c99ea202780b3dd7"
+    ARG TE_TAG="386bd316"
     RUN pip install pybind11 && git clone https://github.com/ROCm/TransformerEngine.git && \
         cd TransformerEngine && git checkout ${TE_TAG} && git submodule update --init --recursive && \
         GPU_ARCHS=${GPU_ARCH} MAX_JOBS=256 python3 setup.py install && \
         cd .. && rm -rf TransformerEngine
+    # TE patch
+    RUN FILE=$(find /usr/local/lib/python3.12/dist-packages/ -path "*transformer_engine*/transformer_engine/pytorch/attention/dot_product_attention/utils.py") && \
+        sed -i '121s/2\.8\.3/2.8.4/' "$FILE"
     #
     # Install vllm
     #
@@ -175,6 +178,14 @@ docker/Dockerfile.rocm
     ENV MIOPEN_DEBUG_CONV_DIRECT=0
     RUN apt install vim -y
     RUN cd /workspace && git clone --recursive https://github.com/ROCm/aiter.git && cd aiter && python3 setup.py develop
+    
+    # for qwen3.5
+    RUN pip install -U git+https://github.com/ISEEKYAN/mbridge.git && \
+        pip install transformers --upgrade && \
+        pip install megatron-core==0.16.0 && \
+        pip install mathruler && \
+        pip install qwen_vl_utils && \
+        pip install flash-linear-attention
 
 Build the image:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,7 +201,7 @@ Docker run:
 .. code-block:: bash
 
     NAME=verl_release
-    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:v3_0427
+    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:verl_gfx942_950
     docker run -it --name $NAME --device /dev/kfd --device /dev/dri \
         --privileged --network=host \
         --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
