@@ -8,7 +8,7 @@ Author: `Mingjie Lu <https://github.com/mingjielu>`_, `Xiaohong Kou <https://git
 Setup
 -----
 
-If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/training_ubuntu_rocm7.0.2_56_py312:verl_gfx942_950 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
+If you run on AMD GPUs (MI300) with ROCM platform, you can use the following steps to build a docker and run verl. Or you can obtain the docker image by "docker pull `amdagi/verl-dev:rocm7.0.2_56_te2.10_vllm0.20_py312 <https://hub.docker.com/r/amdagi/training_ubuntu_rocm7.0.2_56_py312>`_" and run verl.
 
 docker/Dockerfile.rocm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +16,7 @@ docker/Dockerfile.rocm
 .. code-block:: bash
 
     FROM ubuntu:22.04 AS ubuntu
-
+    
     #
     # Install basic packages from OS distro
     #
@@ -160,14 +160,16 @@ docker/Dockerfile.rocm
     #
     FROM te AS install_vllm
     
-    # waiting for upstream vllm update the patch.
-    ARG VLLM_TAG="71161e8b6_revert"
+    ARG VLLM_TAG="1ff9d3353"
     RUN pip install setuptools_scm && \
         mkdir /workspace && cd /workspace && \
         ln -sf /opt/rocm/lib/libamdhip64.so /usr/lib/libamdhip64.so && \
-        git clone https://github.com/mingjielu/vllm && \
-        cd vllm && git checkout ${VLLM_TAG} && git tag v0.18.1rc1 && pip install -r requirements/rocm.txt && \
-        MAX_JOBS=32 python3 setup.py develop --no-deps
+        git clone https://github.com/vllm-project/vllm && \
+        cd vllm && git checkout ${VLLM_TAG} && pip install -r requirements/rocm.txt && \
+        MAX_JOBS=64 python3 setup.py develop --no-deps
+    RUN pip uninstall tilelang -y && pip install xgrammar==0.1.32
+    
+    RUN apt-get update && apt install vim -y
     
     FROM install_vllm AS install_verl
     RUN cd /workspace && git clone https://github.com/volcengine/verl.git && \
@@ -176,8 +178,8 @@ docker/Dockerfile.rocm
     
     
     ENV MIOPEN_DEBUG_CONV_DIRECT=0
-    RUN apt install vim -y
-    RUN cd /workspace && git clone --recursive https://github.com/ROCm/aiter.git && cd aiter && python3 setup.py develop
+    ARG AITER_TAG="45c428e54"
+    RUN cd /workspace && git clone --recursive https://github.com/ROCm/aiter.git && cd aiter && git checkout ${AITER_TAG} && python3 setup.py develop
     
     # for qwen3.5
     RUN pip install -U git+https://github.com/ISEEKYAN/mbridge.git && \
@@ -201,7 +203,7 @@ Docker run:
 .. code-block:: bash
 
     NAME=verl_release
-    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:verl_gfx942_950
+    DOCKER=amdagi/verl-dev:rocm7.0.2_56_te2.10_vllm0.20_py312
     docker run -it --name $NAME --device /dev/kfd --device /dev/dri \
         --privileged --network=host \
         --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
@@ -213,20 +215,23 @@ Docker run:
 
 GRPO:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Qwen3.5 is supported in the this version.
+Qwen3-8b-fsdp, you need add param_offload & optimizer_offlad, otherwise cause oom.
 
 .. code-block:: bash
 
     # prepare the data and model for training
-    # prepare the environment
-    pip install -U git+https://github.com/ISEEKYAN/mbridge.git
-    pip install transformers --upgrade
-    pip install megatron-core --upgrade
-    pip install mathruler
-    pip install qwen_vl_utils
-    pip install flash-linear-attention
+    # modify training script
+    + actor_rollout_ref.actor.fsdp_config.param_offload=True \
+    + actor_rollout_ref.actor.fsdp_config.optimizer_offload=True
+    # run the training
+    bash examples/grpo_trainer/run_qwen3_8b_fsdp.sh
+
+
+Qwen3.5 is supported in the this version. You can run the default script.
+
+.. code-block:: bash
+
+    # prepare the data and model for training
     # run the training
     bash examples/grpo_trainer/run_qwen3_5-35b-megatron.sh
 
