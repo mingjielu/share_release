@@ -48,7 +48,7 @@ Launch Container
 .. code-block:: bash
 
     NAME=verl_release
-    DOCKER=amdagi/training_ubuntu_rocm7.0.2_56_py312:verl_te2.10_vllm0.20_gfx942_950
+    DOCKER=amdagi/verl-dev:rocm7.0.2_56_te2.10_vllm0.20_py312
 
     docker pull $DOCKER
 
